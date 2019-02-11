@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Edit> disabled ActionModal 1`] = `
+<ActionModal
+  action="Update"
+  buttonIcon="edit"
+  buttonSize="small"
+  buttonStyle="primary"
+  close="Abort"
+  disabled={true}
+  onAction={[Function]}
+  title="GSLT Memo"
+>
+  <FormControl
+    bsClass="form-control"
+    className="js-memo"
+    componentClass="textarea"
+    defaultValue="Awesome"
+    maxLength="256"
+    onChange={[Function]}
+    rows="10"
+  />
+</ActionModal>
+`;
+
+exports[`<Edit> enabled ActionModal change and save memo 1`] = `
+<ActionModal
+  action="Update"
+  buttonIcon="edit"
+  buttonSize="small"
+  buttonStyle="primary"
+  close="Abort"
+  disabled={false}
+  onAction={[Function]}
+  title="GSLT Memo"
+>
+  <FormControl
+    bsClass="form-control"
+    className="js-memo"
+    componentClass="textarea"
+    defaultValue="Awesome"
+    maxLength="256"
+    onChange={[Function]}
+    rows="10"
+  />
+</ActionModal>
+`;
+
+exports[`<Edit> enabled ActionModal save memo 1`] = `
+<ActionModal
+  action="Update"
+  buttonIcon="edit"
+  buttonSize="small"
+  buttonStyle="primary"
+  close="Abort"
+  disabled={false}
+  onAction={[Function]}
+  title="GSLT Memo"
+>
+  <FormControl
+    bsClass="form-control"
+    className="js-memo"
+    componentClass="textarea"
+    defaultValue="Awesome"
+    maxLength="256"
+    onChange={[Function]}
+    rows="10"
+  />
+</ActionModal>
+`;

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   viewBox="0 0 233 233"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Steam_icon_logo.svg">
+  <metadata
+     id="metadata27">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     id="namedview25"
+     showgrid="false"
+     inkscape:zoom="3.505186"
+     inkscape:cx="138.15426"
+     inkscape:cy="121.99973"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <linearGradient
+       id="a"
+       x2="50%"
+       x1="50%"
+       y2="100%">
+      <stop
+         stop-color="#111D2E"
+         offset="0"
+         id="stop7" />
+      <stop
+         stop-color="#051839"
+         offset=".21248"
+         id="stop9" />
+      <stop
+         stop-color="#0A1B48"
+         offset=".40695"
+         id="stop11" />
+      <stop
+         stop-color="#132E62"
+         offset=".58110"
+         id="stop13" />
+      <stop
+         stop-color="#144B7E"
+         offset=".73760"
+         id="stop15" />
+      <stop
+         stop-color="#136497"
+         offset=".87279"
+         id="stop17" />
+      <stop
+         stop-color="#1387B8"
+         offset="1"
+         id="stop19" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y1="0"
+       gradientTransform="matrix(0.99946338,0,0,1.0005369,45.134218,-6.4606658)"
+       id="a-5"
+       x2="116.68872"
+       x1="116.68872"
+       y2="232.87497"
+       spreadMethod="pad">
+      <stop
+         stop-color="#111D2E"
+         offset="0"
+         id="stop7-8" />
+      <stop
+         stop-color="#051839"
+         offset=".21248"
+         id="stop9-4" />
+      <stop
+         stop-color="#0A1B48"
+         offset=".40695"
+         id="stop11-0" />
+      <stop
+         stop-color="#132E62"
+         offset=".58110"
+         id="stop13-8" />
+      <stop
+         stop-color="#144B7E"
+         offset=".73760"
+         id="stop15-4" />
+      <stop
+         stop-color="#136497"
+         offset=".87279"
+         id="stop17-2" />
+      <stop
+         stop-color="#1387B8"
+         offset="1"
+         id="stop19-5" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#a-5"
+       id="linearGradient4204"
+       x1="0.34906006"
+       y1="115.71616"
+       x2="232.47334"
+       y2="115.71616"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.0049385,-0.12445471,-233.26941)" />
+  </defs>
+  <ellipse
+     style="fill:url(#linearGradient4204);fill-opacity:1"
+     id="path4165"
+     cx="116.28674"
+     cy="-116.98178"
+     rx="116.06214"
+     ry="116.10913"
+     inkscape:export-xdpi="6.2010627"
+     inkscape:export-ydpi="6.2010627"
+     transform="matrix(0,1,-1,0,0,0)"
+     inkscape:export-filename="/home/philipp/Dokumente/Projects/browser-extension-steam-gslt/dist/icon-16.png" />
+  <g
+     transform="matrix(1.0390479,0,0,1.0390479,-3.2889767,24.468966)"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:70.45918274px;line-height:125%;font-family:mono;-inkscape-font-specification:mono;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00bc8f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     id="flowRoot4155"
+     inkscape:export-filename="/home/philipp/Dokumente/Projects/browser-extension-steam-gslt/dist/icon-16.png"
+     inkscape:export-xdpi="6.2010627"
+     inkscape:export-ydpi="6.2010627">
+    <path
+       d="m 71.783263,112.81364 q -4.954161,2.40828 -10.286765,3.61241 -5.332604,1.20414 -11.009247,1.20414 -12.832654,0 -20.332704,-7.15601 -7.50005,-7.19042 -7.50005,-19.472609 0,-12.419807 7.637666,-19.541414 7.637665,-7.121607 20.91757,-7.121607 5.12618,0 9.80511,0.963309 4.713334,0.96331 8.876206,2.855524 l 0,10.630804 q -4.300487,-2.442676 -8.56657,-3.646813 -4.23168,-1.204136 -8.497763,-1.204136 -7.912897,0 -12.213384,4.438103 -4.266083,4.403699 -4.266083,12.62623 0,8.153724 4.128467,12.591829 4.128468,4.4381 11.73173,4.4381 2.064233,0 3.818832,-0.24083 1.789003,-0.27523 3.199563,-0.82569 l 0,-9.977131 -8.084916,0 0,-8.876205 20.642338,0 0,24.701996 z"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:70.45918274px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;fill-rule:evenodd"
+       id="path4207" />
+    <path
+       d="m 119.15743,66.884439 0,10.871631 q -4.23168,-1.892214 -8.25693,-2.855523 -4.02526,-0.963309 -7.60326,-0.963309 -4.747743,0 -7.0184,1.307348 -2.270657,1.307348 -2.270657,4.05966 0,2.064234 1.513771,3.233966 1.548176,1.135329 5.573436,1.961022 l 5.64223,1.135329 q 8.56658,1.720195 12.17898,5.229393 3.61241,3.509197 3.61241,9.977134 0,8.49776 -5.05737,12.66063 -5.02297,4.12847 -15.37854,4.12847 -4.885355,0 -9.805112,-0.92891 -4.919758,-0.9289 -9.839515,-2.75231 l 0,-11.18127 q 4.919757,2.6147 9.495476,3.95645 4.610122,1.30735 8.876201,1.30735 4.3349,0 6.63996,-1.44496 2.30506,-1.44497 2.30506,-4.12847 0,-2.40827 -1.58258,-3.715622 -1.54818,-1.307348 -6.22711,-2.339465 l -5.126178,-1.135329 q -7.706473,-1.651387 -11.284478,-5.263796 -3.543602,-3.612409 -3.543602,-9.736303 0,-7.672069 4.954162,-11.800537 4.954161,-4.128468 14.243216,-4.128468 4.23168,0 8.70418,0.653674 4.47251,0.619271 9.25465,1.892215 z"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:70.45918274px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;fill-rule:evenodd"
+       id="path4209" />
+    <path
+       d="m 134.19194,65.267456 13.2455,0 0,41.353484 23.25703,0 0,10.01154 -36.50253,0 0,-51.365024 z"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:70.45918274px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;fill-rule:evenodd"
+       id="path4211" />
+    <path
+       d="m 161.23339,65.267456 47.33976,0 0,10.011534 -17.02993,0 0,41.35349 -13.2455,0 0,-41.35349 -17.06433,0 0,-10.011534 z"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:70.45918274px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;fill-rule:evenodd"
+       id="path4213" />
+  </g>
+</svg>

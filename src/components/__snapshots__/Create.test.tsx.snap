@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Create> fail to create account 1`] = `
+<ActionModal
+  action="Create"
+  buttonIcon="plus"
+  buttonStyle="success"
+  buttonText="New"
+  close="Abort"
+  disabled={false}
+  onAction={[Function]}
+  onOpen={[Function]}
+  title="Create GSLT"
+>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Amount
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-amount"
+      componentClass="input"
+      defaultValue="1"
+      onChange={[Function]}
+      type="number"
+    />
+  </FormGroup>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Game
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-appid"
+      componentClass="input"
+      onChange={[Function]}
+      placeholder="App-ID like 440 for TF2, 730 for CS:GO"
+      type="text"
+    />
+  </FormGroup>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Memo
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-memo"
+      componentClass="textarea"
+      maxLength="256"
+      onChange={[Function]}
+      placeholder="Optional short description"
+      rows="10"
+    />
+  </FormGroup>
+</ActionModal>
+`;
+
+exports[`<Create> succesful change and create account 1`] = `
+<ActionModal
+  action="Create"
+  buttonIcon="plus"
+  buttonStyle="success"
+  buttonText="New"
+  close="Abort"
+  disabled={false}
+  onAction={[Function]}
+  onOpen={[Function]}
+  title="Create GSLT"
+>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Amount
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-amount"
+      componentClass="input"
+      defaultValue="1"
+      onChange={[Function]}
+      type="number"
+    />
+  </FormGroup>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Game
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-appid"
+      componentClass="input"
+      onChange={[Function]}
+      placeholder="App-ID like 440 for TF2, 730 for CS:GO"
+      type="text"
+    />
+  </FormGroup>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Memo
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-memo"
+      componentClass="textarea"
+      maxLength="256"
+      onChange={[Function]}
+      placeholder="Optional short description"
+      rows="10"
+    />
+  </FormGroup>
+</ActionModal>
+`;
+
+exports[`<Create> succesful create account 1`] = `
+<ActionModal
+  action="Create"
+  buttonIcon="plus"
+  buttonStyle="success"
+  buttonText="New"
+  close="Abort"
+  disabled={false}
+  onAction={[Function]}
+  onOpen={[Function]}
+  title="Create GSLT"
+>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Amount
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-amount"
+      componentClass="input"
+      defaultValue="1"
+      onChange={[Function]}
+      type="number"
+    />
+  </FormGroup>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Game
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-appid"
+      componentClass="input"
+      onChange={[Function]}
+      placeholder="App-ID like 440 for TF2, 730 for CS:GO"
+      type="text"
+    />
+  </FormGroup>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Memo
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-memo"
+      componentClass="textarea"
+      maxLength="256"
+      onChange={[Function]}
+      placeholder="Optional short description"
+      rows="10"
+    />
+  </FormGroup>
+</ActionModal>
+`;
+
+exports[`<Create> successfull reset of form data 1`] = `
+<ActionModal
+  action="Create"
+  buttonIcon="plus"
+  buttonStyle="success"
+  buttonText="New"
+  close="Abort"
+  disabled={false}
+  onAction={[Function]}
+  onOpen={[Function]}
+  title="Create GSLT"
+>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Amount
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-amount"
+      componentClass="input"
+      defaultValue="1"
+      onChange={[Function]}
+      type="number"
+    />
+  </FormGroup>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Game
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-appid"
+      componentClass="input"
+      onChange={[Function]}
+      placeholder="App-ID like 440 for TF2, 730 for CS:GO"
+      type="text"
+    />
+  </FormGroup>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}
+    >
+      Memo
+    </ControlLabel>
+    <FormControl
+      bsClass="form-control"
+      className="js-memo"
+      componentClass="textarea"
+      maxLength="256"
+      onChange={[Function]}
+      placeholder="Optional short description"
+      rows="10"
+    />
+  </FormGroup>
+</ActionModal>
+`;

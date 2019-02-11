@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login> hidden modal 1`] = `
+<span>
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={false}
+  >
+    <ModalHeader
+      bsClass="modal-header"
+      closeButton={false}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4"
+      >
+        Login
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      <div
+        className="panel panel-info"
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
+      >
+        <div
+          className="panel-heading"
+        >
+          <div
+            className="page-header text-center"
+          >
+            <h4>
+              Please 
+              <a
+                href="https://steamcommunity.com/login/home/"
+              >
+                login
+              </a>
+                into your Steam account for using this browser extension!
+            </h4>
+          </div>
+        </div>
+      </div>
+    </ModalBody>
+  </Modal>
+</span>
+`;
+
+exports[`<Login> show modal 1`] = `
+<span>
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={true}
+  >
+    <ModalHeader
+      bsClass="modal-header"
+      closeButton={false}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4"
+      >
+        Login
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      <div
+        className="panel panel-info"
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
+      >
+        <div
+          className="panel-heading"
+        >
+          <div
+            className="page-header text-center"
+          >
+            <h4>
+              Please 
+              <a
+                href="https://steamcommunity.com/login/home/"
+              >
+                login
+              </a>
+                into your Steam account for using this browser extension!
+            </h4>
+          </div>
+        </div>
+      </div>
+    </ModalBody>
+  </Modal>
+</span>
+`;

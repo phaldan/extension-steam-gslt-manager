@@ -1,0 +1,844 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Entry> not selected and disabled regenerate 1`] = `
+<Checkbox
+  bsClass="checkbox"
+  checked={false}
+  className="js-select"
+  disabled={false}
+  inline={false}
+  onChange={[Function]}
+  title=""
+/>
+`;
+
+exports[`<Entry> not selected and disabled regenerate 2`] = `
+<FormControl
+  bsClass="form-control"
+  bsSize="small"
+  componentClass="input"
+  readOnly={true}
+  type="text"
+  value="7FJS3VY2273L"
+/>
+`;
+
+exports[`<Entry> not selected and disabled regenerate 3`] = `null`;
+
+exports[`<Entry> not selected and disabled regenerate 4`] = `
+Array [
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="danger"
+    className="js-remove"
+    disabled={false}
+    onClick={[Function]}
+    title="Remove"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="trash"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="success"
+    className="js-regenerate"
+    disabled={true}
+    onClick={[Function]}
+    title="Regenerate Token"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="refresh"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="primary"
+    className="js-clipboard"
+    disabled={false}
+    onClick={[Function]}
+    title="Copy to clipboard"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="duplicate"
+    />
+  </Button>,
+]
+`;
+
+exports[`<Entry> not selected and enabled regenerate 1`] = `
+<Checkbox
+  bsClass="checkbox"
+  checked={false}
+  className="js-select"
+  disabled={false}
+  inline={false}
+  onChange={[Function]}
+  title=""
+/>
+`;
+
+exports[`<Entry> not selected and enabled regenerate 2`] = `
+<FormControl
+  bsClass="form-control"
+  bsSize="small"
+  componentClass="input"
+  readOnly={true}
+  type="text"
+  value="7FJS3VY2273L"
+/>
+`;
+
+exports[`<Entry> not selected and enabled regenerate 3`] = `
+<FormattedDate
+  day="2-digit"
+  month="long"
+  value={1995-12-17T03:24:00.000Z}
+  year="numeric"
+/>
+`;
+
+exports[`<Entry> not selected and enabled regenerate 4`] = `
+Array [
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="danger"
+    className="js-remove"
+    disabled={false}
+    onClick={[Function]}
+    title="Remove"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="trash"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="success"
+    className="js-regenerate"
+    disabled={false}
+    onClick={[Function]}
+    title="Regenerate Token"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="refresh"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="primary"
+    className="js-clipboard"
+    disabled={false}
+    onClick={[Function]}
+    title="Copy to clipboard"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="duplicate"
+    />
+  </Button>,
+]
+`;
+
+exports[`<Entry> selected and disabled regenerate click regenerate 1`] = `
+<Checkbox
+  bsClass="checkbox"
+  checked={true}
+  className="js-select"
+  disabled={false}
+  inline={false}
+  onChange={[Function]}
+  title=""
+/>
+`;
+
+exports[`<Entry> selected and disabled regenerate click regenerate 2`] = `
+<FormControl
+  bsClass="form-control"
+  bsSize="small"
+  componentClass="input"
+  readOnly={true}
+  type="text"
+  value="7FJS3VY2273L"
+/>
+`;
+
+exports[`<Entry> selected and disabled regenerate click regenerate 3`] = `
+<FormattedDate
+  day="2-digit"
+  month="long"
+  value={1995-12-17T03:24:00.000Z}
+  year="numeric"
+/>
+`;
+
+exports[`<Entry> selected and disabled regenerate click regenerate 4`] = `
+Array [
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="danger"
+    className="js-remove"
+    disabled={false}
+    onClick={[Function]}
+    title="Remove"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="trash"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="success"
+    className="js-regenerate"
+    disabled={true}
+    onClick={[Function]}
+    title="Regenerate Token"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="refresh"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="primary"
+    className="js-clipboard"
+    disabled={false}
+    onClick={[Function]}
+    title="Copy to clipboard"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="duplicate"
+    />
+  </Button>,
+]
+`;
+
+exports[`<Entry> selected and disabled regenerate initial state 1`] = `
+<Checkbox
+  bsClass="checkbox"
+  checked={true}
+  className="js-select"
+  disabled={false}
+  inline={false}
+  onChange={[Function]}
+  title=""
+/>
+`;
+
+exports[`<Entry> selected and disabled regenerate initial state 2`] = `
+<FormControl
+  bsClass="form-control"
+  bsSize="small"
+  componentClass="input"
+  readOnly={true}
+  type="text"
+  value="7FJS3VY2273L"
+/>
+`;
+
+exports[`<Entry> selected and disabled regenerate initial state 3`] = `
+<FormattedDate
+  day="2-digit"
+  month="long"
+  value={1995-12-17T03:24:00.000Z}
+  year="numeric"
+/>
+`;
+
+exports[`<Entry> selected and disabled regenerate initial state 4`] = `
+Array [
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="danger"
+    className="js-remove"
+    disabled={false}
+    onClick={[Function]}
+    title="Remove"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="trash"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="success"
+    className="js-regenerate"
+    disabled={true}
+    onClick={[Function]}
+    title="Regenerate Token"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="refresh"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="primary"
+    className="js-clipboard"
+    disabled={false}
+    onClick={[Function]}
+    title="Copy to clipboard"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="duplicate"
+    />
+  </Button>,
+]
+`;
+
+exports[`<Entry> selected and enabled regenerate click copy to clipboard 1`] = `
+<Checkbox
+  bsClass="checkbox"
+  checked={true}
+  className="js-select"
+  disabled={false}
+  inline={false}
+  onChange={[Function]}
+  title=""
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click copy to clipboard 2`] = `
+<FormControl
+  bsClass="form-control"
+  bsSize="small"
+  componentClass="input"
+  readOnly={true}
+  type="text"
+  value="7FJS3VY2273L"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click copy to clipboard 3`] = `
+<FormattedDate
+  day="2-digit"
+  month="long"
+  value={1995-12-17T03:24:00.000Z}
+  year="numeric"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click copy to clipboard 4`] = `
+Array [
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="danger"
+    className="js-remove"
+    disabled={false}
+    onClick={[Function]}
+    title="Remove"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="trash"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="success"
+    className="js-regenerate"
+    disabled={false}
+    onClick={[Function]}
+    title="Regenerate Token"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="refresh"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="primary"
+    className="js-clipboard"
+    disabled={false}
+    onClick={[Function]}
+    title="Copy to clipboard"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="duplicate"
+    />
+  </Button>,
+]
+`;
+
+exports[`<Entry> selected and enabled regenerate click regenerate 1`] = `
+<Checkbox
+  bsClass="checkbox"
+  checked={true}
+  className="js-select"
+  disabled={false}
+  inline={false}
+  onChange={[Function]}
+  title=""
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click regenerate 2`] = `
+<FormControl
+  bsClass="form-control"
+  bsSize="small"
+  componentClass="input"
+  readOnly={true}
+  type="text"
+  value="7FJS3VY2273L"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click regenerate 3`] = `
+<FormattedDate
+  day="2-digit"
+  month="long"
+  value={1995-12-17T03:24:00.000Z}
+  year="numeric"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click regenerate 4`] = `
+Array [
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="danger"
+    className="js-remove"
+    disabled={false}
+    onClick={[Function]}
+    title="Remove"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="trash"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="success"
+    className="js-regenerate"
+    disabled={true}
+    onClick={[Function]}
+    title="Regenerate Token"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="refresh"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="primary"
+    className="js-clipboard"
+    disabled={false}
+    onClick={[Function]}
+    title="Copy to clipboard"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="duplicate"
+    />
+  </Button>,
+]
+`;
+
+exports[`<Entry> selected and enabled regenerate click remove 1`] = `
+<Checkbox
+  bsClass="checkbox"
+  checked={true}
+  className="js-select"
+  disabled={false}
+  inline={false}
+  onChange={[Function]}
+  title=""
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click remove 2`] = `
+<FormControl
+  bsClass="form-control"
+  bsSize="small"
+  componentClass="input"
+  readOnly={true}
+  type="text"
+  value="7FJS3VY2273L"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click remove 3`] = `
+<FormattedDate
+  day="2-digit"
+  month="long"
+  value={1995-12-17T03:24:00.000Z}
+  year="numeric"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click remove 4`] = `
+Array [
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="danger"
+    className="js-remove"
+    disabled={true}
+    onClick={[Function]}
+    title="Remove"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="trash"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="success"
+    className="js-regenerate"
+    disabled={true}
+    onClick={[Function]}
+    title="Regenerate Token"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="refresh"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="primary"
+    className="js-clipboard"
+    disabled={false}
+    onClick={[Function]}
+    title="Copy to clipboard"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="duplicate"
+    />
+  </Button>,
+]
+`;
+
+exports[`<Entry> selected and enabled regenerate click remove with locked user 1`] = `
+<Checkbox
+  bsClass="checkbox"
+  checked={true}
+  className="js-select"
+  disabled={false}
+  inline={false}
+  onChange={[Function]}
+  title=""
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click remove with locked user 2`] = `
+<FormControl
+  bsClass="form-control"
+  bsSize="small"
+  componentClass="input"
+  readOnly={true}
+  type="text"
+  value="7FJS3VY2273L"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click remove with locked user 3`] = `
+<FormattedDate
+  day="2-digit"
+  month="long"
+  value={1995-12-17T03:24:00.000Z}
+  year="numeric"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate click remove with locked user 4`] = `
+Array [
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="danger"
+    className="js-remove"
+    disabled={true}
+    onClick={[Function]}
+    title="Remove"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="trash"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="success"
+    className="js-regenerate"
+    disabled={true}
+    onClick={[Function]}
+    title="Regenerate Token"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="refresh"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="primary"
+    className="js-clipboard"
+    disabled={false}
+    onClick={[Function]}
+    title="Copy to clipboard"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="duplicate"
+    />
+  </Button>,
+]
+`;
+
+exports[`<Entry> selected and enabled regenerate initial state 1`] = `
+<Checkbox
+  bsClass="checkbox"
+  checked={true}
+  className="js-select"
+  disabled={false}
+  inline={false}
+  onChange={[Function]}
+  title=""
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate initial state 2`] = `
+<FormControl
+  bsClass="form-control"
+  bsSize="small"
+  componentClass="input"
+  readOnly={true}
+  type="text"
+  value="7FJS3VY2273L"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate initial state 3`] = `
+<FormattedDate
+  day="2-digit"
+  month="long"
+  value={1995-12-17T03:24:00.000Z}
+  year="numeric"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate initial state 4`] = `
+Array [
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="danger"
+    className="js-remove"
+    disabled={false}
+    onClick={[Function]}
+    title="Remove"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="trash"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="success"
+    className="js-regenerate"
+    disabled={false}
+    onClick={[Function]}
+    title="Regenerate Token"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="refresh"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="primary"
+    className="js-clipboard"
+    disabled={false}
+    onClick={[Function]}
+    title="Copy to clipboard"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="duplicate"
+    />
+  </Button>,
+]
+`;
+
+exports[`<Entry> selected and enabled regenerate unselect 1`] = `
+<Checkbox
+  bsClass="checkbox"
+  checked={true}
+  className="js-select"
+  disabled={false}
+  inline={false}
+  onChange={[Function]}
+  title=""
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate unselect 2`] = `
+<FormControl
+  bsClass="form-control"
+  bsSize="small"
+  componentClass="input"
+  readOnly={true}
+  type="text"
+  value="7FJS3VY2273L"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate unselect 3`] = `
+<FormattedDate
+  day="2-digit"
+  month="long"
+  value={1995-12-17T03:24:00.000Z}
+  year="numeric"
+/>
+`;
+
+exports[`<Entry> selected and enabled regenerate unselect 4`] = `
+Array [
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="danger"
+    className="js-remove"
+    disabled={false}
+    onClick={[Function]}
+    title="Remove"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="trash"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="success"
+    className="js-regenerate"
+    disabled={false}
+    onClick={[Function]}
+    title="Regenerate Token"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="refresh"
+    />
+  </Button>,
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsSize="small"
+    bsStyle="primary"
+    className="js-clipboard"
+    disabled={false}
+    onClick={[Function]}
+    title="Copy to clipboard"
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="duplicate"
+    />
+  </Button>,
+]
+`;

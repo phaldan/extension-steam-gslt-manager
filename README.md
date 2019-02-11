@@ -1,4 +1,4 @@
-# React-TypeScript
+# Steam GSLT Manager
 
 Minimal boilerplate for a single-page app using MobX, React and TypeScript with TSX.
 

@@ -1,0 +1,1536 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App> clear search-term 1`] = `
+<div
+  className="container"
+>
+  <Notification
+    actions={
+      ActionQueueState {
+        "queues": Array [],
+        "removeDelay": 3000,
+      }
+    }
+  />
+  <Login
+    show={false}
+  />
+  <div
+    className="page-header"
+  >
+    <FormGroup
+      bsClass="form-group"
+      className="pull-right"
+    >
+      <Create
+        actions={
+          ActionQueueState {
+            "queues": Array [],
+            "removeDelay": 3000,
+          }
+        }
+        store={
+          GsltStoreStub {
+            "accounts": Array [
+              GameServerAccount {
+                "appid": 730,
+                "expired": false,
+                "lastLogon": undefined,
+                "locked": false,
+                "memo": "CSGO",
+                "steamid": "212V16ECZ4HE",
+                "token": "7FJS3VY2273L",
+              },
+            ],
+            "initialized": true,
+          }
+        }
+        text="New"
+      />
+      <Readme />
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        href="https://github.com/phaldan/steam-gslt-manager"
+      >
+        <i
+          className="fa fa-github"
+        />
+         Github
+      </Button>
+    </FormGroup>
+    <h1>
+      Steam GSLT manager
+    </h1>
+  </div>
+  <Uncontrolled(TabContainer)
+    defaultActiveKey="activeGslt"
+    id="gslt-tabs"
+  >
+    <div>
+      <div
+        className="form-inline pull-right"
+      >
+        <FormGroup
+          bsClass="form-group"
+          className="pull-right"
+        >
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Filter:
+          </ControlLabel>
+          <InputGroup
+            bsClass="input-group"
+          >
+            <FormControl
+              bsClass="form-control"
+              className="js-filter"
+              componentClass="input"
+              onChange={[Function]}
+              placeholder="Memo, Game"
+              type="text"
+              value=""
+            />
+            <InputGroupButton
+              bsClass="input-group-btn"
+            >
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                className="js-clear"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  aria-hidden="true"
+                  className="close"
+                />
+              </Button>
+            </InputGroupButton>
+          </InputGroup>
+        </FormGroup>
+      </div>
+      <Nav
+        bsClass="nav"
+        bsStyle="tabs"
+        justified={false}
+        pullLeft={false}
+        pullRight={false}
+        stacked={false}
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="activeGslt"
+        >
+          Active 
+          <span
+            className="badge"
+          >
+            1
+          </span>
+        </NavItem>
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="expiredGslt"
+        >
+          Expired 
+          <span
+            className="badge"
+          >
+            0
+          </span>
+        </NavItem>
+      </Nav>
+      <TabContent
+        animation={true}
+        bsClass="tab"
+        componentClass="div"
+        mountOnEnter={false}
+        unmountOnExit={false}
+      >
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="activeGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={false}
+            items={
+              Array [
+                GameServerAccount {
+                  "appid": 730,
+                  "expired": false,
+                  "lastLogon": undefined,
+                  "locked": false,
+                  "memo": "CSGO",
+                  "steamid": "212V16ECZ4HE",
+                  "token": "7FJS3VY2273L",
+                },
+              ]
+            }
+            store={
+              GsltStoreStub {
+                "accounts": Array [
+                  GameServerAccount {
+                    "appid": 730,
+                    "expired": false,
+                    "lastLogon": undefined,
+                    "locked": false,
+                    "memo": "CSGO",
+                    "steamid": "212V16ECZ4HE",
+                    "token": "7FJS3VY2273L",
+                  },
+                ],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="expiredGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={true}
+            items={Array []}
+            store={
+              GsltStoreStub {
+                "accounts": Array [
+                  GameServerAccount {
+                    "appid": 730,
+                    "expired": false,
+                    "lastLogon": undefined,
+                    "locked": false,
+                    "memo": "CSGO",
+                    "steamid": "212V16ECZ4HE",
+                    "token": "7FJS3VY2273L",
+                  },
+                ],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+      </TabContent>
+    </div>
+  </Uncontrolled(TabContainer)>
+</div>
+`;
+
+exports[`<App> empty no accounts 1`] = `
+<div
+  className="container"
+>
+  <Notification
+    actions={
+      ActionQueueState {
+        "queues": Array [],
+        "removeDelay": 3000,
+      }
+    }
+  />
+  <Login
+    show={false}
+  />
+  <div
+    className="page-header"
+  >
+    <FormGroup
+      bsClass="form-group"
+      className="pull-right"
+    >
+      <Create
+        actions={
+          ActionQueueState {
+            "queues": Array [],
+            "removeDelay": 3000,
+          }
+        }
+        store={
+          GsltStoreStub {
+            "accounts": Array [],
+            "initialized": false,
+          }
+        }
+        text="New"
+      />
+      <Readme />
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        href="https://github.com/phaldan/steam-gslt-manager"
+      >
+        <i
+          className="fa fa-github"
+        />
+         Github
+      </Button>
+    </FormGroup>
+    <h1>
+      Steam GSLT manager
+    </h1>
+  </div>
+  <Uncontrolled(TabContainer)
+    defaultActiveKey="activeGslt"
+    id="gslt-tabs"
+  >
+    <div>
+      <div
+        className="form-inline pull-right"
+      >
+        <FormGroup
+          bsClass="form-group"
+          className="pull-right"
+        >
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Filter:
+          </ControlLabel>
+          <InputGroup
+            bsClass="input-group"
+          >
+            <FormControl
+              bsClass="form-control"
+              className="js-filter"
+              componentClass="input"
+              onChange={[Function]}
+              placeholder="Memo, Game"
+              type="text"
+              value=""
+            />
+            <InputGroupButton
+              bsClass="input-group-btn"
+            >
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                className="js-clear"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  aria-hidden="true"
+                  className="close"
+                />
+              </Button>
+            </InputGroupButton>
+          </InputGroup>
+        </FormGroup>
+      </div>
+      <Nav
+        bsClass="nav"
+        bsStyle="tabs"
+        justified={false}
+        pullLeft={false}
+        pullRight={false}
+        stacked={false}
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="activeGslt"
+        >
+          Active 
+        </NavItem>
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="expiredGslt"
+        >
+          Expired 
+        </NavItem>
+      </Nav>
+      <TabContent
+        animation={true}
+        bsClass="tab"
+        componentClass="div"
+        mountOnEnter={false}
+        unmountOnExit={false}
+      >
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="activeGslt"
+        >
+          <div
+            className="text-center"
+          >
+            <span
+              className="loader"
+            />
+          </div>
+        </TabPane>
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="expiredGslt"
+        >
+          <div
+            className="text-center"
+          >
+            <span
+              className="loader"
+            />
+          </div>
+        </TabPane>
+      </TabContent>
+    </div>
+  </Uncontrolled(TabContainer)>
+</div>
+`;
+
+exports[`<App> fail to filter 1`] = `
+<div
+  className="container"
+>
+  <Notification
+    actions={
+      ActionQueueState {
+        "queues": Array [],
+        "removeDelay": 3000,
+      }
+    }
+  />
+  <Login
+    show={false}
+  />
+  <div
+    className="page-header"
+  >
+    <FormGroup
+      bsClass="form-group"
+      className="pull-right"
+    >
+      <Create
+        actions={
+          ActionQueueState {
+            "queues": Array [],
+            "removeDelay": 3000,
+          }
+        }
+        store={
+          GsltStoreStub {
+            "accounts": Array [
+              GameServerAccount {
+                "appid": 730,
+                "expired": false,
+                "lastLogon": undefined,
+                "locked": false,
+                "memo": "CSGO",
+                "steamid": "212V16ECZ4HE",
+                "token": "7FJS3VY2273L",
+              },
+            ],
+            "initialized": true,
+          }
+        }
+        text="New"
+      />
+      <Readme />
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        href="https://github.com/phaldan/steam-gslt-manager"
+      >
+        <i
+          className="fa fa-github"
+        />
+         Github
+      </Button>
+    </FormGroup>
+    <h1>
+      Steam GSLT manager
+    </h1>
+  </div>
+  <Uncontrolled(TabContainer)
+    defaultActiveKey="activeGslt"
+    id="gslt-tabs"
+  >
+    <div>
+      <div
+        className="form-inline pull-right"
+      >
+        <FormGroup
+          bsClass="form-group"
+          className="pull-right"
+        >
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Filter:
+          </ControlLabel>
+          <InputGroup
+            bsClass="input-group"
+          >
+            <FormControl
+              bsClass="form-control"
+              className="js-filter"
+              componentClass="input"
+              onChange={[Function]}
+              placeholder="Memo, Game"
+              type="text"
+              value="1337"
+            />
+            <InputGroupButton
+              bsClass="input-group-btn"
+            >
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                className="js-clear"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  aria-hidden="true"
+                  className="close"
+                />
+              </Button>
+            </InputGroupButton>
+          </InputGroup>
+        </FormGroup>
+      </div>
+      <Nav
+        bsClass="nav"
+        bsStyle="tabs"
+        justified={false}
+        pullLeft={false}
+        pullRight={false}
+        stacked={false}
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="activeGslt"
+        >
+          Active 
+          <span
+            className="badge"
+          >
+            0
+          </span>
+        </NavItem>
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="expiredGslt"
+        >
+          Expired 
+          <span
+            className="badge"
+          >
+            0
+          </span>
+        </NavItem>
+      </Nav>
+      <TabContent
+        animation={true}
+        bsClass="tab"
+        componentClass="div"
+        mountOnEnter={false}
+        unmountOnExit={false}
+      >
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="activeGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={false}
+            items={Array []}
+            store={
+              GsltStoreStub {
+                "accounts": Array [
+                  GameServerAccount {
+                    "appid": 730,
+                    "expired": false,
+                    "lastLogon": undefined,
+                    "locked": false,
+                    "memo": "CSGO",
+                    "steamid": "212V16ECZ4HE",
+                    "token": "7FJS3VY2273L",
+                  },
+                ],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="expiredGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={true}
+            items={Array []}
+            store={
+              GsltStoreStub {
+                "accounts": Array [
+                  GameServerAccount {
+                    "appid": 730,
+                    "expired": false,
+                    "lastLogon": undefined,
+                    "locked": false,
+                    "memo": "CSGO",
+                    "steamid": "212V16ECZ4HE",
+                    "token": "7FJS3VY2273L",
+                  },
+                ],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+      </TabContent>
+    </div>
+  </Uncontrolled(TabContainer)>
+</div>
+`;
+
+exports[`<App> success filter by appid 1`] = `
+<div
+  className="container"
+>
+  <Notification
+    actions={
+      ActionQueueState {
+        "queues": Array [],
+        "removeDelay": 3000,
+      }
+    }
+  />
+  <Login
+    show={false}
+  />
+  <div
+    className="page-header"
+  >
+    <FormGroup
+      bsClass="form-group"
+      className="pull-right"
+    >
+      <Create
+        actions={
+          ActionQueueState {
+            "queues": Array [],
+            "removeDelay": 3000,
+          }
+        }
+        store={
+          GsltStoreStub {
+            "accounts": Array [
+              GameServerAccount {
+                "appid": 730,
+                "expired": false,
+                "lastLogon": undefined,
+                "locked": false,
+                "memo": "CSGO",
+                "steamid": "212V16ECZ4HE",
+                "token": "7FJS3VY2273L",
+              },
+            ],
+            "initialized": true,
+          }
+        }
+        text="New"
+      />
+      <Readme />
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        href="https://github.com/phaldan/steam-gslt-manager"
+      >
+        <i
+          className="fa fa-github"
+        />
+         Github
+      </Button>
+    </FormGroup>
+    <h1>
+      Steam GSLT manager
+    </h1>
+  </div>
+  <Uncontrolled(TabContainer)
+    defaultActiveKey="activeGslt"
+    id="gslt-tabs"
+  >
+    <div>
+      <div
+        className="form-inline pull-right"
+      >
+        <FormGroup
+          bsClass="form-group"
+          className="pull-right"
+        >
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Filter:
+          </ControlLabel>
+          <InputGroup
+            bsClass="input-group"
+          >
+            <FormControl
+              bsClass="form-control"
+              className="js-filter"
+              componentClass="input"
+              onChange={[Function]}
+              placeholder="Memo, Game"
+              type="text"
+              value="730"
+            />
+            <InputGroupButton
+              bsClass="input-group-btn"
+            >
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                className="js-clear"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  aria-hidden="true"
+                  className="close"
+                />
+              </Button>
+            </InputGroupButton>
+          </InputGroup>
+        </FormGroup>
+      </div>
+      <Nav
+        bsClass="nav"
+        bsStyle="tabs"
+        justified={false}
+        pullLeft={false}
+        pullRight={false}
+        stacked={false}
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="activeGslt"
+        >
+          Active 
+          <span
+            className="badge"
+          >
+            1
+          </span>
+        </NavItem>
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="expiredGslt"
+        >
+          Expired 
+          <span
+            className="badge"
+          >
+            0
+          </span>
+        </NavItem>
+      </Nav>
+      <TabContent
+        animation={true}
+        bsClass="tab"
+        componentClass="div"
+        mountOnEnter={false}
+        unmountOnExit={false}
+      >
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="activeGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={false}
+            items={
+              Array [
+                GameServerAccount {
+                  "appid": 730,
+                  "expired": false,
+                  "lastLogon": undefined,
+                  "locked": false,
+                  "memo": "CSGO",
+                  "steamid": "212V16ECZ4HE",
+                  "token": "7FJS3VY2273L",
+                },
+              ]
+            }
+            store={
+              GsltStoreStub {
+                "accounts": Array [
+                  GameServerAccount {
+                    "appid": 730,
+                    "expired": false,
+                    "lastLogon": undefined,
+                    "locked": false,
+                    "memo": "CSGO",
+                    "steamid": "212V16ECZ4HE",
+                    "token": "7FJS3VY2273L",
+                  },
+                ],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="expiredGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={true}
+            items={Array []}
+            store={
+              GsltStoreStub {
+                "accounts": Array [
+                  GameServerAccount {
+                    "appid": 730,
+                    "expired": false,
+                    "lastLogon": undefined,
+                    "locked": false,
+                    "memo": "CSGO",
+                    "steamid": "212V16ECZ4HE",
+                    "token": "7FJS3VY2273L",
+                  },
+                ],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+      </TabContent>
+    </div>
+  </Uncontrolled(TabContainer)>
+</div>
+`;
+
+exports[`<App> success filter by memo 1`] = `
+<div
+  className="container"
+>
+  <Notification
+    actions={
+      ActionQueueState {
+        "queues": Array [],
+        "removeDelay": 3000,
+      }
+    }
+  />
+  <Login
+    show={false}
+  />
+  <div
+    className="page-header"
+  >
+    <FormGroup
+      bsClass="form-group"
+      className="pull-right"
+    >
+      <Create
+        actions={
+          ActionQueueState {
+            "queues": Array [],
+            "removeDelay": 3000,
+          }
+        }
+        store={
+          GsltStoreStub {
+            "accounts": Array [
+              GameServerAccount {
+                "appid": 730,
+                "expired": false,
+                "lastLogon": undefined,
+                "locked": false,
+                "memo": "CSGO",
+                "steamid": "212V16ECZ4HE",
+                "token": "7FJS3VY2273L",
+              },
+            ],
+            "initialized": true,
+          }
+        }
+        text="New"
+      />
+      <Readme />
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        href="https://github.com/phaldan/steam-gslt-manager"
+      >
+        <i
+          className="fa fa-github"
+        />
+         Github
+      </Button>
+    </FormGroup>
+    <h1>
+      Steam GSLT manager
+    </h1>
+  </div>
+  <Uncontrolled(TabContainer)
+    defaultActiveKey="activeGslt"
+    id="gslt-tabs"
+  >
+    <div>
+      <div
+        className="form-inline pull-right"
+      >
+        <FormGroup
+          bsClass="form-group"
+          className="pull-right"
+        >
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Filter:
+          </ControlLabel>
+          <InputGroup
+            bsClass="input-group"
+          >
+            <FormControl
+              bsClass="form-control"
+              className="js-filter"
+              componentClass="input"
+              onChange={[Function]}
+              placeholder="Memo, Game"
+              type="text"
+              value="CSGO"
+            />
+            <InputGroupButton
+              bsClass="input-group-btn"
+            >
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                className="js-clear"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  aria-hidden="true"
+                  className="close"
+                />
+              </Button>
+            </InputGroupButton>
+          </InputGroup>
+        </FormGroup>
+      </div>
+      <Nav
+        bsClass="nav"
+        bsStyle="tabs"
+        justified={false}
+        pullLeft={false}
+        pullRight={false}
+        stacked={false}
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="activeGslt"
+        >
+          Active 
+          <span
+            className="badge"
+          >
+            1
+          </span>
+        </NavItem>
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="expiredGslt"
+        >
+          Expired 
+          <span
+            className="badge"
+          >
+            0
+          </span>
+        </NavItem>
+      </Nav>
+      <TabContent
+        animation={true}
+        bsClass="tab"
+        componentClass="div"
+        mountOnEnter={false}
+        unmountOnExit={false}
+      >
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="activeGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={false}
+            items={
+              Array [
+                GameServerAccount {
+                  "appid": 730,
+                  "expired": false,
+                  "lastLogon": undefined,
+                  "locked": false,
+                  "memo": "CSGO",
+                  "steamid": "212V16ECZ4HE",
+                  "token": "7FJS3VY2273L",
+                },
+              ]
+            }
+            store={
+              GsltStoreStub {
+                "accounts": Array [
+                  GameServerAccount {
+                    "appid": 730,
+                    "expired": false,
+                    "lastLogon": undefined,
+                    "locked": false,
+                    "memo": "CSGO",
+                    "steamid": "212V16ECZ4HE",
+                    "token": "7FJS3VY2273L",
+                  },
+                ],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="expiredGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={true}
+            items={Array []}
+            store={
+              GsltStoreStub {
+                "accounts": Array [
+                  GameServerAccount {
+                    "appid": 730,
+                    "expired": false,
+                    "lastLogon": undefined,
+                    "locked": false,
+                    "memo": "CSGO",
+                    "steamid": "212V16ECZ4HE",
+                    "token": "7FJS3VY2273L",
+                  },
+                ],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+      </TabContent>
+    </div>
+  </Uncontrolled(TabContainer)>
+</div>
+`;
+
+exports[`<App> success multiple filter 1`] = `
+<div
+  className="container"
+>
+  <Notification
+    actions={
+      ActionQueueState {
+        "queues": Array [],
+        "removeDelay": 3000,
+      }
+    }
+  />
+  <Login
+    show={false}
+  />
+  <div
+    className="page-header"
+  >
+    <FormGroup
+      bsClass="form-group"
+      className="pull-right"
+    >
+      <Create
+        actions={
+          ActionQueueState {
+            "queues": Array [],
+            "removeDelay": 3000,
+          }
+        }
+        store={
+          GsltStoreStub {
+            "accounts": Array [
+              GameServerAccount {
+                "appid": 730,
+                "expired": false,
+                "lastLogon": undefined,
+                "locked": false,
+                "memo": "CSGO",
+                "steamid": "212V16ECZ4HE",
+                "token": "7FJS3VY2273L",
+              },
+            ],
+            "initialized": true,
+          }
+        }
+        text="New"
+      />
+      <Readme />
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        href="https://github.com/phaldan/steam-gslt-manager"
+      >
+        <i
+          className="fa fa-github"
+        />
+         Github
+      </Button>
+    </FormGroup>
+    <h1>
+      Steam GSLT manager
+    </h1>
+  </div>
+  <Uncontrolled(TabContainer)
+    defaultActiveKey="activeGslt"
+    id="gslt-tabs"
+  >
+    <div>
+      <div
+        className="form-inline pull-right"
+      >
+        <FormGroup
+          bsClass="form-group"
+          className="pull-right"
+        >
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Filter:
+          </ControlLabel>
+          <InputGroup
+            bsClass="input-group"
+          >
+            <FormControl
+              bsClass="form-control"
+              className="js-filter"
+              componentClass="input"
+              onChange={[Function]}
+              placeholder="Memo, Game"
+              type="text"
+              value="CSGO"
+            />
+            <InputGroupButton
+              bsClass="input-group-btn"
+            >
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                className="js-clear"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  aria-hidden="true"
+                  className="close"
+                />
+              </Button>
+            </InputGroupButton>
+          </InputGroup>
+        </FormGroup>
+      </div>
+      <Nav
+        bsClass="nav"
+        bsStyle="tabs"
+        justified={false}
+        pullLeft={false}
+        pullRight={false}
+        stacked={false}
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="activeGslt"
+        >
+          Active 
+          <span
+            className="badge"
+          >
+            1
+          </span>
+        </NavItem>
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="expiredGslt"
+        >
+          Expired 
+          <span
+            className="badge"
+          >
+            0
+          </span>
+        </NavItem>
+      </Nav>
+      <TabContent
+        animation={true}
+        bsClass="tab"
+        componentClass="div"
+        mountOnEnter={false}
+        unmountOnExit={false}
+      >
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="activeGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={false}
+            items={
+              Array [
+                GameServerAccount {
+                  "appid": 730,
+                  "expired": false,
+                  "lastLogon": undefined,
+                  "locked": false,
+                  "memo": "CSGO",
+                  "steamid": "212V16ECZ4HE",
+                  "token": "7FJS3VY2273L",
+                },
+              ]
+            }
+            store={
+              GsltStoreStub {
+                "accounts": Array [
+                  GameServerAccount {
+                    "appid": 730,
+                    "expired": false,
+                    "lastLogon": undefined,
+                    "locked": false,
+                    "memo": "CSGO",
+                    "steamid": "212V16ECZ4HE",
+                    "token": "7FJS3VY2273L",
+                  },
+                ],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="expiredGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={true}
+            items={Array []}
+            store={
+              GsltStoreStub {
+                "accounts": Array [
+                  GameServerAccount {
+                    "appid": 730,
+                    "expired": false,
+                    "lastLogon": undefined,
+                    "locked": false,
+                    "memo": "CSGO",
+                    "steamid": "212V16ECZ4HE",
+                    "token": "7FJS3VY2273L",
+                  },
+                ],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+      </TabContent>
+    </div>
+  </Uncontrolled(TabContainer)>
+</div>
+`;
+
+exports[`<App> with empty list of accounts 1`] = `
+<div
+  className="container"
+>
+  <Notification
+    actions={
+      ActionQueueState {
+        "queues": Array [],
+        "removeDelay": 3000,
+      }
+    }
+  />
+  <Login
+    show={false}
+  />
+  <div
+    className="page-header"
+  >
+    <FormGroup
+      bsClass="form-group"
+      className="pull-right"
+    >
+      <Create
+        actions={
+          ActionQueueState {
+            "queues": Array [],
+            "removeDelay": 3000,
+          }
+        }
+        store={
+          GsltStoreStub {
+            "accounts": Array [],
+            "initialized": true,
+          }
+        }
+        text="New"
+      />
+      <Readme />
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        href="https://github.com/phaldan/steam-gslt-manager"
+      >
+        <i
+          className="fa fa-github"
+        />
+         Github
+      </Button>
+    </FormGroup>
+    <h1>
+      Steam GSLT manager
+    </h1>
+  </div>
+  <Uncontrolled(TabContainer)
+    defaultActiveKey="activeGslt"
+    id="gslt-tabs"
+  >
+    <div>
+      <div
+        className="form-inline pull-right"
+      >
+        <FormGroup
+          bsClass="form-group"
+          className="pull-right"
+        >
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}
+          >
+            Filter:
+          </ControlLabel>
+          <InputGroup
+            bsClass="input-group"
+          >
+            <FormControl
+              bsClass="form-control"
+              className="js-filter"
+              componentClass="input"
+              onChange={[Function]}
+              placeholder="Memo, Game"
+              type="text"
+              value=""
+            />
+            <InputGroupButton
+              bsClass="input-group-btn"
+            >
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                className="js-clear"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <span
+                  aria-hidden="true"
+                  className="close"
+                />
+              </Button>
+            </InputGroupButton>
+          </InputGroup>
+        </FormGroup>
+      </div>
+      <Nav
+        bsClass="nav"
+        bsStyle="tabs"
+        justified={false}
+        pullLeft={false}
+        pullRight={false}
+        stacked={false}
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="activeGslt"
+        >
+          Active 
+          <span
+            className="badge"
+          >
+            0
+          </span>
+        </NavItem>
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey="expiredGslt"
+        >
+          Expired 
+          <span
+            className="badge"
+          >
+            0
+          </span>
+        </NavItem>
+      </Nav>
+      <TabContent
+        animation={true}
+        bsClass="tab"
+        componentClass="div"
+        mountOnEnter={false}
+        unmountOnExit={false}
+      >
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="activeGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={false}
+            items={Array []}
+            store={
+              GsltStoreStub {
+                "accounts": Array [],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+        <TabPane
+          bsClass="tab-pane"
+          eventKey="expiredGslt"
+        >
+          <List
+            actions={
+              ActionQueueState {
+                "queues": Array [],
+                "removeDelay": 3000,
+              }
+            }
+            enableRegenerate={true}
+            items={Array []}
+            store={
+              GsltStoreStub {
+                "accounts": Array [],
+                "initialized": true,
+              }
+            }
+          />
+        </TabPane>
+      </TabContent>
+    </div>
+  </Uncontrolled(TabContainer)>
+</div>
+`;
