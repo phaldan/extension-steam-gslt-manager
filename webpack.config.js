@@ -145,6 +145,7 @@ module.exports = (env, argv) => {
         filename: 'manifest.json',
         title,
         prodMode,
+        version: process.env.npm_package_version,
       }),
       new WriteFilePlugin({
         test: /\.(html|css|js|json|png)$/,
