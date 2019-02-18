@@ -2,6 +2,7 @@
   "name": "stean-gslt-manager",
   "version": "1.0.0",
   "description": "Browser extension to enhance Steam GSLT manager",
+  "private": true,
   "scripts": {
     "dev": "webpack-dev-server --host localhost --disableHostCheck=true --mode=development",
     "dist": "npm-run-all build:* lint test:coverage build",
@@ -12,7 +13,8 @@
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "test:snapshot": "jest -u",
-    "lint": "tslint --project . --format verbose"
+    "lint": "tslint --project . --format verbose",
+    "release": "release-it"
   },
   "devDependencies": {
     "@types/enzyme": "3.1.9",
@@ -42,6 +44,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "npm-run-all": "4.1.2",
     "react-test-renderer": "15.6.1",
+    "release-it": "^9.0.0",
     "style-loader": "^0.18.2",
     "ts-jest": "22.0.1",
     "tslint": "5.9.1",

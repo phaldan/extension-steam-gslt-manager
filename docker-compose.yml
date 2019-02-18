@@ -1,0 +1,11 @@
+version: "3"
+services:
+  node:
+    build: .
+    volumes:
+      - ./:/app
+      - ~/.gitconfig:/home/node/.gitconfig
+    working_dir: /app
+    network_mode: "host"
+    user: "1000:1000"
+
