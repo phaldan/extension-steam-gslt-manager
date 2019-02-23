@@ -7,13 +7,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ZipPlugin = require('zip-webpack-plugin');
 const ExtensionTarget = require('./ExtensionTarget');
 
-const title = 'Steam GSLT manager';
+const packageVersion = process.env.npm_package_version;
+const packageDesc = process.env.npm_package_description;
 
 module.exports = (env, argv) => {
   const prodMode = argv.mode === 'production';
   console.log(`Production mode: ${prodMode ? "enabled" : "disabled"}`);
 
-  const browser = new ExtensionTarget(env && env.target ? env.target : undefined);
+  const extTarget = new ExtensionTarget(env && env.target ? env.target : undefined);
 
   return {
     devtool: prodMode ? 'cheap-source-map' : 'inline-cheap-source-map',
@@ -29,7 +30,7 @@ module.exports = (env, argv) => {
       background: './src/background',
     },
     output: {
-      path: path.resolve(__dirname, prodMode ? 'build' : 'dev'),
+      path: path.resolve(__dirname, `${prodMode ? 'build' : 'dev'}-${extTarget.getTarget()}`),
       filename: '[name].js',
       sourceMapFilename: '[file].map',
     },
@@ -133,7 +134,7 @@ module.exports = (env, argv) => {
         template: require('html-webpack-template'),
         appMountId: 'root',
         baseHref: prodMode ? undefined : 'http://localhost:8080/',
-        title,
+        title: packageDesc,
         links: [ 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' ],
         minify: {
           collapseBooleanAttributes: true,
@@ -146,10 +147,10 @@ module.exports = (env, argv) => {
         minify: false,
         template: 'src/manifest.json.hbs',
         filename: 'manifest.json',
-        title,
+        title: packageDesc,
         prodMode,
-        version: process.env.npm_package_version,
-        enablePersistent: browser.isFirefox(),
+        version: packageVersion,
+        enablePersistent: extTarget.isFirefox(),
       }),
       new WriteFilePlugin({
         test: /\.(html|css|js|json|png)$/,

@@ -7,6 +7,8 @@
     "dev": "webpack-dev-server --host localhost --disableHostCheck=true --mode=development",
     "dist": "npm-run-all build:* lint test:coverage build",
     "build": "webpack --mode=production",
+    "build-firefox": "webpack --mode=production --env.target=firefox",
+    "build-chrome": "webpack --mode=production --env.target=chrome",
     "build:check-integrity": "yarn check --integrity",
     "build:list": "npm list --depth=0",
     "test": "jest",
