@@ -5,12 +5,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ZipPlugin = require('zip-webpack-plugin');
+const ExtensionTarget = require('./ExtensionTarget');
 
 const title = 'Steam GSLT manager';
 
 module.exports = (env, argv) => {
   const prodMode = argv.mode === 'production';
-  console.log("Production mode " + (prodMode ? "enabled" : "disabled"));
+  console.log(`Production mode: ${prodMode ? "enabled" : "disabled"}`);
+
+  const browser = new ExtensionTarget(env && env.target ? env.target : undefined);
 
   return {
     devtool: prodMode ? 'cheap-source-map' : 'inline-cheap-source-map',
@@ -146,6 +149,7 @@ module.exports = (env, argv) => {
         title,
         prodMode,
         version: process.env.npm_package_version,
+        enablePersistent: browser.isFirefox(),
       }),
       new WriteFilePlugin({
         test: /\.(html|css|js|json|png)$/,

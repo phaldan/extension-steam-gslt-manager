@@ -11,7 +11,7 @@
   },
   "background": {
     "scripts": [ "background.js" ],
-    "persistent": false
+    "persistent": {{htmlWebpackPlugin.options.enablePersistent}}
   },
   "permissions": [ "https://steamcommunity.com/dev/*" ],
   {{#if htmlWebpackPlugin.options.prodMode}}
