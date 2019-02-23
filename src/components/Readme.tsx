@@ -12,7 +12,7 @@ export default class Readme extends React.Component {
           </a>. This manager allows to create and delete multiple tokens and
           also allows to export these tokens. Improvements and bugs can be
           reported on &nbsp;
-          <a href="https://github.com/phaldan/steam-gslt-manager">
+          <a href="https://github.com/phaldan/extension-steam-gslt-manager">
             <i className="fa fa-github" /> github
           </a>. Below is the official Readme of Steam:
         </p>
