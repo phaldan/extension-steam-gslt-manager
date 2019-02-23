@@ -162,6 +162,9 @@ module.exports = (env, argv) => {
       new ZipPlugin({
         filename: 'steam-gslt-manager.zip',
       }),
+      new webpack.DefinePlugin({
+        PACKAGE_VERSION: JSON.stringify(packageVersion),
+      })
     ],
   }
 };

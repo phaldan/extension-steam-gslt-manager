@@ -1,10 +1,15 @@
 import * as React from 'react';
 import ActionModal from './ActionModal';
 
+declare const PACKAGE_VERSION: string;
+
 export default class Readme extends React.Component {
   public render() {
     return (
       <ActionModal title="Readme" size="large" buttonStyle="primary" buttonIcon="question-sign" buttonText="Readme">
+        <p>
+          Version: {PACKAGE_VERSION}
+        </p>
         <p>
           This browser extension provides an alternativ manager for the &nbsp;
           <a href="https://steamcommunity.com/dev/managegameservers">
