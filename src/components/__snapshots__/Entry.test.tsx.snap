@@ -475,7 +475,7 @@ Array [
     bsSize="small"
     bsStyle="success"
     className="js-regenerate"
-    disabled={true}
+    disabled={false}
     onClick={[Function]}
     title="Regenerate Token"
   >

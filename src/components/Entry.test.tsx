@@ -190,7 +190,7 @@ describe('<Entry>', () => {
       target.find('.js-regenerate').simulate('click');
 
       await delay(10);
-      expectDisabledButtons(target, false, true, false);
+      expectDisabledButtons(target, false, false, false);
       expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
       expect(target.find('.js-select').props().checked).toEqual(true);
       expectEdit(target, account);
