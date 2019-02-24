@@ -11,6 +11,10 @@ exports[`<Readme> 1`] = `
   title="Readme"
 >
   <p>
+    Version: 
+    some-version
+  </p>
+  <p>
     This browser extension provides an alternativ manager for the  
     <a
       href="https://steamcommunity.com/dev/managegameservers"
@@ -19,7 +23,7 @@ exports[`<Readme> 1`] = `
     </a>
     . This manager allows to create and delete multiple tokens and also allows to export these tokens. Improvements and bugs can be reported on  
     <a
-      href="https://github.com/phaldan/steam-gslt-manager"
+      href="https://github.com/phaldan/extension-steam-gslt-manager"
     >
       <i
         className="fa fa-github"

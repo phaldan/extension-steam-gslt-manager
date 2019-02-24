@@ -109,6 +109,9 @@
     },
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx,js}"
-    ]
+    ],
+    "globals": {
+      "PACKAGE_VERSION": "some-version"
+    }
   }
 }
