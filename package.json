@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/enzyme": "3.1.9",
     "@types/jest": "^22.0.0",
-    "@types/react": "15.0.39",
+    "@types/react": "^15.0.39",
     "@types/react-dom": "^15.5.4",
     "awesome-typescript-loader": "^3.2.1",
     "babel-core": "^6.26.0",
@@ -66,6 +66,7 @@
     "mobx": "^3.3.0",
     "mobx-react": "^4.3.4",
     "mobx-react-devtools": "^4.2.15",
+    "prop-types": "^15.5.4",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.3",
     "react-bs-notifier": "4.4.6",
