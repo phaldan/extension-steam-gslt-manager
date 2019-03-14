@@ -50,6 +50,7 @@ export default class GsltStoreMobx implements GsltStore {
     return account;
   }
 
+  @action
   public removeAccounts(accounts: GameServerAccount[]): Array<Promise<GameServerAccount>> {
     return this.loadAccountsOnResolveAll(accounts, async (account) => {
       await this.transportLayer.remove(this.sessionid, account.steamid);

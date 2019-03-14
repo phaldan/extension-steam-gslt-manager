@@ -1,5 +1,6 @@
 import { mount } from 'enzyme';
 import * as React from 'react';
+import { stubInterface } from '../utils/mocked';
 import GameServerAccount from './GameServerAccount';
 import GsltStoreMobx from './GsltStoreMobx';
 import { ResponseJson, Transport } from './Transport';
@@ -7,33 +8,18 @@ import { ResponseJson, Transport } from './Transport';
 describe('GsltStoreMobx', () => {
   let target: GsltStoreMobx;
   let transport: Transport;
+  let getAllMock;
+
   beforeEach(() => {
-    transport = new class implements Transport {
-      getAll(): Promise<ResponseJson> {
-        throw new Error("Method not implemented.");
-      }
-      remove(sessionid: string, steamid: string): Promise<Response> {
-        throw new Error("Method not implemented.");
-      }
-      regenerate(sessionid: string, steamid: string): Promise<Response> {
-        throw new Error("Method not implemented.");
-      }
-      changeMemo(sessionid: string, steamid: string, memo: string): Promise<Response> {
-        throw new Error("Method not implemented.");
-      }
-      create(sessionid: string, appid: string, memo: string): Promise<Response> {
-        throw new Error("Method not implemented.");
-      }
-    };
+    getAllMock = jest.fn();
+    transport = stubInterface<Transport>({ getAll: getAllMock });
     target = new GsltStoreMobx(transport);
   });
 
   function createGetAllReturn() {
     return {
       sessionId: '3D6M733LPVJ1',
-      tokens: [
-        createAccountJson()
-      ],
+      tokens: [ createAccountJson() ],
     };
   }
 
@@ -50,11 +36,10 @@ describe('GsltStoreMobx', () => {
 
   test('success load token accounts', async () => {
     const promise = Promise.resolve(createGetAllReturn());
-    const mock = jest.fn().mockReturnValue(promise);
-    transport.getAll = mock;
+    getAllMock.mockReturnValue(promise);
 
     await expect(target.loadAccounts()).resolves.not.toBeDefined();
-    expect(transport.getAll).toHaveBeenCalledTimes(1);
+    expect(getAllMock).toHaveBeenCalledTimes(1);
     expect(target.tokenAccounts).toHaveLength(1);
     expect(target.tokenAccounts[0].steamid).toEqual('212V16ECZ4HE');
   });
@@ -62,13 +47,12 @@ describe('GsltStoreMobx', () => {
   test('success to load token accounts after initial `Need login` error', async () => {
     const reject = Promise.reject(new Error('Need login'));
     const resolve = Promise.resolve(createGetAllReturn());
-    const mock = jest.fn()
+    getAllMock
       .mockReturnValueOnce(reject)
       .mockReturnValueOnce(resolve);
-    transport.getAll = mock;
 
     await expect(target.loadAccounts()).resolves.not.toBeDefined();
-    expect(transport.getAll).toHaveBeenCalledTimes(2);
+    expect(getAllMock).toHaveBeenCalledTimes(2);
     expect(target.tokenAccounts).toHaveLength(1);
     expect(target.tokenAccounts[0].steamid).toEqual('212V16ECZ4HE');
   });
@@ -76,39 +60,34 @@ describe('GsltStoreMobx', () => {
   test('fail to load token accounts', async () => {
     const error = new Error('Failed');
     const reject = Promise.reject(error);
-    const mock = jest.fn().mockReturnValue(reject);
-    transport.getAll = mock;
+    getAllMock.mockReturnValue(reject);
 
     await expect(target.loadAccounts()).rejects.toThrow('Failed');
-    expect(transport.getAll).toHaveBeenCalledTimes(1);
+    expect(getAllMock).toHaveBeenCalledTimes(1);
     expect(target.tokenAccounts).toHaveLength(0);
   });
 
   describe('without a account', () => {
-    let account: GameServerAccount;
-    let getAll;
-
     beforeEach(async () => {
       const promise = Promise.resolve(createGetAllReturn());
-      getAll = jest.fn().mockReturnValue(promise);
-      transport.getAll = getAll;
+      getAllMock.mockReturnValue(promise);
       await target.loadAccounts();
-      getAll.mockReset();
-      getAll.mockReturnValue(promise);
+      getAllMock.mockReset();
+      getAllMock.mockReturnValue(promise);
     });
 
     test('removeAccount', async () => {
       const mock = jest.fn().mockReturnValue(Promise.resolve('result'));
       transport.remove = mock;
-      getAll.mockReturnValue(Promise.resolve({
+      getAllMock.mockReturnValue(Promise.resolve({
         sessionId: '3D6M733LPVJ1',
         tokens: [],
       }));
 
       const account = new GameServerAccount(createAccountJson());
       await expect(target.removeAccount(account)).resolves.toBe(account);
-      expect(transport.remove).toHaveBeenCalledWith('3D6M733LPVJ1', '212V16ECZ4HE');
-      expect(transport.getAll).toHaveBeenCalledTimes(1);
+      expect(mock).toHaveBeenCalledWith('3D6M733LPVJ1', '212V16ECZ4HE');
+      expect(getAllMock).toHaveBeenCalledTimes(1);
       expect(target.tokenAccounts).toHaveLength(0);
     });
 
@@ -118,8 +97,8 @@ describe('GsltStoreMobx', () => {
 
       const account = new GameServerAccount(createAccountJson());
       await expect(target.regenerateToken(account)).resolves.toBe(account);
-      expect(transport.regenerate).toHaveBeenCalledWith('3D6M733LPVJ1', '212V16ECZ4HE');
-      expect(transport.getAll).toHaveBeenCalledTimes(1);
+      expect(mock).toHaveBeenCalledWith('3D6M733LPVJ1', '212V16ECZ4HE');
+      expect(getAllMock).toHaveBeenCalledTimes(1);
       expect(target.tokenAccounts).toHaveLength(1);
     });
 
@@ -129,8 +108,8 @@ describe('GsltStoreMobx', () => {
 
       const account = new GameServerAccount(createAccountJson());
       await expect(target.updateMemo(account, 'example')).resolves.toBe(account);
-      expect(transport.changeMemo).toHaveBeenCalledWith('3D6M733LPVJ1', '212V16ECZ4HE', 'example');
-      expect(transport.getAll).toHaveBeenCalledTimes(1);
+      expect(mock).toHaveBeenCalledWith('3D6M733LPVJ1', '212V16ECZ4HE', 'example');
+      expect(getAllMock).toHaveBeenCalledTimes(1);
       expect(target.tokenAccounts).toHaveLength(1);
     });
 
@@ -140,9 +119,9 @@ describe('GsltStoreMobx', () => {
 
       const result = target.createAccounts(3, '730', 'example');
       await expect(Promise.all(result)).resolves.toEqual([undefined, undefined, undefined]);
-      expect(transport.create).toHaveBeenCalledWith('3D6M733LPVJ1', '730', 'example');
-      expect(transport.create).toHaveBeenCalledTimes(3);
-      expect(transport.getAll).toHaveBeenCalledTimes(1);
+      expect(mock).toHaveBeenCalledWith('3D6M733LPVJ1', '730', 'example');
+      expect(mock).toHaveBeenCalledTimes(3);
+      expect(getAllMock).toHaveBeenCalledTimes(1);
       expect(target.tokenAccounts).toHaveLength(1);
     });
   });

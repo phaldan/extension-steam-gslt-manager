@@ -1,6 +1,6 @@
 describe('background', () => {
-  const browserApi: jest.Mock<Object, any[]> = jest.fn(() => new Object());
-  const chromeApi: jest.Mock<Object, any[]> = jest.fn(() => new Object());
+  const browserApi: jest.Mock<object, any[]> = jest.fn(() => new Object());
+  const chromeApi: jest.Mock<object, any[]> = jest.fn(() => new Object());
   Object.defineProperty(global, 'browser', {
     get: browserApi,
   });

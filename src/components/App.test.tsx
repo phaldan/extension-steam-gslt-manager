@@ -1,9 +1,10 @@
 import { shallow } from 'enzyme';
 import { action, computed, observable } from 'mobx';
 import * as React from 'react';
-import GameServerAccount from 'store/GameServerAccount';
-import GsltStore from 'store/GsltStore';
-import delay from 'utils/delay';
+import GameServerAccount from '../store/GameServerAccount';
+import GsltStore from '../store/GsltStore';
+import GsltStoreDummy from '../store/GsltStoreDummy';
+import delay from '../utils/delay';
 import App from './App';
 
 function createGetAllJson() {
@@ -17,8 +18,8 @@ function createGetAllJson() {
         memo: 'CSGO',
         steamid: '212V16ECZ4HE',
         token: '7FJS3VY2273L',
-      }
-    ]
+      },
+    ],
   };
 }
 
@@ -33,54 +34,35 @@ function createAccount() {
   });
 }
 
-class GsltStoreStub implements GsltStore {
-
+class GsltStoreStub extends GsltStoreDummy {
   @observable
   private accounts: GameServerAccount[] = [];
 
   @observable
   private initialized: boolean = false;
 
-  loadAccounts(): Promise<void> {
-    throw new Error("Method not implemented.");
-  }
   @computed
-  get tokenAccounts(): GameServerAccount[] {
-    return this.accounts;
-  }
-  removeAccount(account: GameServerAccount): Promise<GameServerAccount> {
-    throw new Error("Method not implemented.");
-  }
-  removeAccounts(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
-    throw new Error("Method not implemented.");
-  }
-  regenerateToken(account: GameServerAccount): Promise<GameServerAccount> {
-    throw new Error("Method not implemented.");
-  }
-  regenerateTokens(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
-    throw new Error("Method not implemented.");
-  }
-  updateMemo(account: GameServerAccount, memo: string): Promise<GameServerAccount> {
-    throw new Error("Method not implemented.");
-  }
-  createAccounts(amount: number, appid: string, memo: string): Promise<void>[] {
-    throw new Error("Method not implemented.");
-  }
-  @computed
-  get isLoggedIn(): boolean {
-    return true;
-  }
-  @computed
-  get isInitialized(): boolean {
+  public get isInitialized(): boolean {
     return this.initialized;
   }
 
+  @computed
+  public get isLoggedIn(): boolean {
+    return true;
+  }
+
+  @computed
+  public get tokenAccounts(): GameServerAccount[] {
+    return this.accounts;
+  }
+
   @action
-  setAccounts(accounts: GameServerAccount[]): void {
+  public setAccounts(accounts: GameServerAccount[]): void {
     this.accounts = accounts;
   }
+
   @action
-  setInitialized(initialized: boolean): void {
+  public setInitialized(initialized: boolean): void {
     this.initialized = initialized;
   }
 }
@@ -108,7 +90,7 @@ describe('<App>', () => {
     state.setAccounts([createAccount()]);
     state.setInitialized(true);
     target.find('.js-filter').simulate('change', { target: { value: 'CSGO' } });
-    await delay(0); // Need because of debounce for search delay
+    await delay(0); // Needed because of debounce for search delay
     expect(target.update()).toMatchSnapshot();
   });
 

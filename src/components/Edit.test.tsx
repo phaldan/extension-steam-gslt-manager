@@ -1,56 +1,21 @@
 import { mount, shallow } from 'enzyme';
+import 'jest-enzyme';
 import * as React from 'react';
 import GameServerAccount from '../store/GameServerAccount';
 import GsltStore from '../store/GsltStore';
+import GsltStoreDummy from '../store/GsltStoreDummy';
 import ActionQueueState from '../uiState/ActionQueueState';
 import delay from '../utils/delay';
 import Edit from './Edit';
-import 'jest-enzyme';
-
-class GsltStoreStub implements GsltStore {
-  public updateReturn?: Promise<GameServerAccount>;
-  public updateMock = jest.fn();
-
-  loadAccounts(): Promise<void> {
-    throw new Error("Method not implemented.");
-  }
-  get tokenAccounts(): GameServerAccount[] {
-    throw new Error("Method not implemented.");
-  }
-  removeAccount(account: GameServerAccount): Promise<GameServerAccount> {
-    throw new Error("Method not implemented.");
-  }
-  removeAccounts(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
-    throw new Error("Method not implemented.");
-  }
-  regenerateToken(account: GameServerAccount): Promise<GameServerAccount> {
-    throw new Error("Method not implemented.");
-  }
-  regenerateTokens(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
-    throw new Error("Method not implemented.");
-  }
-  updateMemo(account: GameServerAccount, memo: string): Promise<GameServerAccount> {
-    this.updateMock(account, memo);
-    return this.updateReturn || Promise.reject('promise for GameServerAccount not found');
-  }
-  createAccounts(amount: number, appid: string, memo: string): Promise<void>[] {
-    throw new Error("Method not implemented.");
-  }
-  get isLoggedIn(): boolean {
-    throw new Error("Method not implemented.");
-  }
-  get isInitialized(): boolean {
-    throw new Error("Method not implemented.");
-  }
-}
 
 describe('<Edit>', () => {
   let account: GameServerAccount;
-  let store: GsltStoreStub;
+  let store: GsltStore;
   let queue: ActionQueueState;
+  let updateMock;
 
-  function createComponent(account, state, disabled) {
-    return shallow(<Edit account={account} store={state} actions={queue} disabled={disabled} />);
+  function createComponent(accountState, state, disabled) {
+    return shallow(<Edit account={accountState} store={state} actions={queue} disabled={disabled} />);
   }
 
   function expectEdit(target, modalIsDisabled) {
@@ -70,7 +35,11 @@ describe('<Edit>', () => {
       steamid: '',
       token: '',
     });
-    store = new GsltStoreStub();
+
+    store = new GsltStoreDummy();
+    updateMock = jest.fn();
+    store.updateMemo = updateMock;
+
     queue = new ActionQueueState();
     queue.setRemoveDelay(1);
   });
@@ -79,13 +48,15 @@ describe('<Edit>', () => {
     const target = createComponent(account, store, true);
 
     expectEdit(target, true);
-    expect(store.updateMock).not.toHaveBeenCalled();
+    expect(updateMock).not.toHaveBeenCalled();
   });
 
   describe('enabled ActionModal', () => {
     let target;
     beforeEach(() => {
-      store.updateReturn = Promise.resolve(account);
+      updateMock = jest.fn(() => Promise.resolve(account));
+      store.updateMemo = updateMock;
+
       target = createComponent(account, store, false);
     });
 
@@ -95,7 +66,7 @@ describe('<Edit>', () => {
       await delay(10);
 
       expectEdit(target, false);
-      expect(store.updateMock).toHaveBeenCalledWith(account, 'Awesome');
+      expect(updateMock).toHaveBeenCalledWith(account, 'Awesome');
     });
 
     test('change and save memo', async () =>  {
@@ -104,7 +75,7 @@ describe('<Edit>', () => {
 
       await delay(10);
       expectEdit(target, false);
-      expect(store.updateMock).toHaveBeenCalledWith(account, 'Changed');
+      expect(updateMock).toHaveBeenCalledWith(account, 'Changed');
     });
   });
 });

@@ -31,11 +31,11 @@ export default class Export extends React.Component<ExportProps> {
         onAction={this.copy}
       >
         <FormGroup>
-          {this.createCheckBox(this.checked.steamId, "js-steamid", "SteamID", this.setSteamId)}
-          {this.createCheckBox(this.checked.token, "js-token", "Token", this.setToken)}
-          {this.createCheckBox(this.checked.appId, "js-appid", "AppID", this.setAppId)}
-          {this.createCheckBox(this.checked.lastLogon, "js-logon", "Last logon", this.setLogon)}
-          {this.createCheckBox(this.checked.memo, "js-memo", "Memo", this.setMemo)}
+          {this.createCheckBox(this.checked.steamId, 'js-steamid', 'SteamID', this.setSteamId)}
+          {this.createCheckBox(this.checked.token, 'js-token', 'Token', this.setToken)}
+          {this.createCheckBox(this.checked.appId, 'js-appid', 'AppID', this.setAppId)}
+          {this.createCheckBox(this.checked.lastLogon, 'js-logon', 'Last logon', this.setLogon)}
+          {this.createCheckBox(this.checked.memo, 'js-memo', 'Memo', this.setMemo)}
         </FormGroup>
 
         <FormGroup>
@@ -109,7 +109,9 @@ export default class Export extends React.Component<ExportProps> {
         checked={checked}
         onChange={callback}
         className={className}
-      >{text}</Checkbox>
+      >
+       {text}
+      </Checkbox>
     );
   }
 }

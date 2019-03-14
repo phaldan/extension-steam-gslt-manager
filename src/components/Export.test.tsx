@@ -1,8 +1,8 @@
 import { mount, shallow } from 'enzyme';
+import 'jest-enzyme';
 import * as React from 'react';
 import GameServerAccount from '../store/GameServerAccount';
 import Export from './Export';
-import 'jest-enzyme';
 
 jest.mock('copy-to-clipboard');
 

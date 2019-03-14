@@ -1,11 +1,12 @@
 import { mount, shallow } from 'enzyme';
+import 'jest-enzyme';
 import * as React from 'react';
 import GameServerAccount from '../store/GameServerAccount';
 import GsltStore from '../store/GsltStore';
+import GsltStoreDummy from '../store/GsltStoreDummy';
 import ActionQueueState from '../uiState/ActionQueueState';
 import delay from '../utils/delay';
 import Entry from './Entry';
-import 'jest-enzyme';
 
 jest.mock('copy-to-clipboard');
 
@@ -23,49 +24,11 @@ function createComponent(state, account, selected, regenerate, queue, callback =
   return shallow(element);
 }
 
-class GsltStoreStub implements GsltStore {
-  public removeAccountReturn?: Promise<GameServerAccount>;
-  public removeAccountMock = jest.fn();
-  public regenerateTokenReturn?: Promise<GameServerAccount>;
-  public regenerateTokenMock = jest.fn();
-
-  loadAccounts(): Promise<void> {
-    throw new Error("Method not implemented.");
-  }
-  get tokenAccounts(): GameServerAccount[] {
-    throw new Error("Method not implemented.");
-  }
-  removeAccount(account: GameServerAccount): Promise<GameServerAccount> {
-    this.removeAccountMock(account);
-    return this.removeAccountReturn || Promise.reject('Promise for removeAccount not found');
-  }
-  removeAccounts(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
-    throw new Error("Method not implemented.");
-  }
-  regenerateToken(account: GameServerAccount): Promise<GameServerAccount> {
-    this.regenerateTokenMock(account);
-    return this.regenerateTokenReturn || Promise.reject('Promise for regenerateToken not found');
-  }
-  regenerateTokens(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
-    throw new Error("Method not implemented.");
-  }
-  updateMemo(account: GameServerAccount, memo: string): Promise<GameServerAccount> {
-    throw new Error("Method not implemented.");
-  }
-  createAccounts(amount: number, appid: string, memo: string): Promise<void>[] {
-    throw new Error("Method not implemented.");
-  }
-  get isLoggedIn(): boolean {
-    throw new Error("Method not implemented.");
-  }
-  get isInitialized(): boolean {
-    throw new Error("Method not implemented.");
-  }
-}
-
 describe('<Entry>', () => {
-  let store: GsltStoreStub;
+  let store: GsltStore;
   let queue: ActionQueueState;
+  let removeAccountMock;
+  let regenerateTokenMock;
   const copyToClipboard = require('copy-to-clipboard');
 
   function expectDisabledButtons(target, remove, regenerate, edit) {
@@ -101,7 +64,13 @@ describe('<Entry>', () => {
 
   beforeEach(() => {
     copyToClipboard.mockReset();
-    store = new GsltStoreStub();
+    store = new GsltStoreDummy();
+
+    removeAccountMock = jest.fn();
+    store.removeAccount = removeAccountMock;
+    regenerateTokenMock = jest.fn();
+    store.regenerateToken = regenerateTokenMock;
+
     queue = new ActionQueueState();
     queue.setRemoveDelay(0);
   });
@@ -128,8 +97,8 @@ describe('<Entry>', () => {
       expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
-      expect(store.removeAccountMock).not.toBeCalled();
-      expect(store.regenerateTokenMock).not.toBeCalled();
+      expect(removeAccountMock).not.toBeCalled();
+      expect(regenerateTokenMock).not.toBeCalled();
       expect(copyToClipboard).not.toBeCalled();
       expectSnapshot(target);
     });
@@ -138,7 +107,7 @@ describe('<Entry>', () => {
       const callback = jest.fn();
       const target = createComponent(store, account, true, true, queue, callback);
       target.find('.js-select').simulate('change', {target: {checked: false}});
-      
+
       expectDisabledButtons(target, false, false, false);
       expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
       expect(target.find('.js-select')).toHaveProp('checked', true);
@@ -146,14 +115,13 @@ describe('<Entry>', () => {
       expect(queue.running).toHaveLength(0);
       expect(callback).toBeCalled();
       expect(callback).toHaveBeenCalledWith(false, account);
-      expect(store.removeAccountMock).not.toBeCalled();
-      expect(store.regenerateTokenMock).not.toBeCalled();
+      expect(removeAccountMock).not.toBeCalled();
+      expect(regenerateTokenMock).not.toBeCalled();
       expect(copyToClipboard).not.toBeCalled();
       expectSnapshot(target);
     });
 
     test('click remove', async () =>  {
-      store.removeAccountReturn = Promise.resolve(account);
       const target = createComponent(store, account, true, true, queue);
       target.find('.js-remove').simulate('click');
 
@@ -163,8 +131,8 @@ describe('<Entry>', () => {
       expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
-      expect(store.removeAccountMock).toBeCalledWith(account);
-      expect(store.regenerateTokenMock).not.toBeCalled();
+      expect(removeAccountMock).toBeCalledWith(account);
+      expect(regenerateTokenMock).not.toBeCalled();
       expect(copyToClipboard).not.toBeCalled();
       expectSnapshot(target);
     });
@@ -179,14 +147,13 @@ describe('<Entry>', () => {
       expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
-      expect(store.removeAccountMock).not.toBeCalled();
-      expect(store.regenerateTokenMock).not.toBeCalled();
+      expect(removeAccountMock).not.toBeCalled();
+      expect(regenerateTokenMock).not.toBeCalled();
       expect(copyToClipboard).not.toBeCalled();
       expectSnapshot(target);
     });
 
     test('click regenerate', async () =>  {
-      store.regenerateTokenReturn = Promise.resolve(account);
       const target = createComponent(store, account, true, true, queue);
       target.find('.js-regenerate').simulate('click');
 
@@ -196,8 +163,8 @@ describe('<Entry>', () => {
       expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
-      expect(store.removeAccountMock).not.toBeCalled();
-      expect(store.regenerateTokenMock).toBeCalledWith(account);
+      expect(removeAccountMock).not.toBeCalled();
+      expect(regenerateTokenMock).toBeCalledWith(account);
       expect(copyToClipboard).not.toBeCalled();
       expectSnapshot(target);
     });
@@ -211,8 +178,8 @@ describe('<Entry>', () => {
       expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
-      expect(store.removeAccountMock).not.toBeCalled();
-      expect(store.regenerateTokenMock).not.toBeCalled();
+      expect(removeAccountMock).not.toBeCalled();
+      expect(regenerateTokenMock).not.toBeCalled();
       expect(copyToClipboard).toHaveBeenCalledWith('7FJS3VY2273L');
       expectSnapshot(target);
     });
@@ -239,8 +206,8 @@ describe('<Entry>', () => {
       expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
-      expect(store.removeAccountMock).not.toBeCalled();
-      expect(store.regenerateTokenMock).not.toBeCalled();
+      expect(removeAccountMock).not.toBeCalled();
+      expect(regenerateTokenMock).not.toBeCalled();
       expect(copyToClipboard).not.toBeCalled();
       expectSnapshot(target);
     });
@@ -254,8 +221,8 @@ describe('<Entry>', () => {
       expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
-      expect(store.removeAccountMock).not.toBeCalled();
-      expect(store.regenerateTokenMock).not.toBeCalled();
+      expect(removeAccountMock).not.toBeCalled();
+      expect(regenerateTokenMock).not.toBeCalled();
       expect(copyToClipboard).not.toBeCalled();
       expectSnapshot(target);
     });
@@ -277,8 +244,8 @@ describe('<Entry>', () => {
     expect(target.find('.js-select')).toHaveProp('checked', false);
     expectEdit(target, account);
     expect(queue.running).toHaveLength(0);
-    expect(store.removeAccountMock).not.toBeCalled();
-    expect(store.regenerateTokenMock).not.toBeCalled();
+    expect(removeAccountMock).not.toBeCalled();
+    expect(regenerateTokenMock).not.toBeCalled();
     expect(copyToClipboard).not.toBeCalled();
     expectSnapshot(target);
   });
@@ -291,7 +258,7 @@ describe('<Entry>', () => {
       memo: 'CSGO',
       steamid: '',
       token: '7FJS3VY2273L',
-    });;
+    });
     const target = createComponent(store, account, false, false, queue);
 
     expect(copyToClipboard).not.toBeCalled();
@@ -300,8 +267,8 @@ describe('<Entry>', () => {
     expect(target.find('.js-select')).toHaveProp('checked', false);
     expectEdit(target, account);
     expect(queue.running).toHaveLength(0);
-    expect(store.removeAccountMock).not.toBeCalled();
-    expect(store.regenerateTokenMock).not.toBeCalled();
+    expect(removeAccountMock).not.toBeCalled();
+    expect(regenerateTokenMock).not.toBeCalled();
     expect(copyToClipboard).not.toBeCalled();
     expectSnapshot(target);
   });

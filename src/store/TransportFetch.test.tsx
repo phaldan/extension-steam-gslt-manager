@@ -8,6 +8,18 @@ const fetch = window.fetch as fetch;
 describe('TransportFetch', () => {
   let target: TransportFetch;
 
+  function createToken(token: object = {}) {
+    const defaults = {
+      appid: 730,
+      expired: false,
+      lastLogon: undefined,
+      memo: 'CSGO',
+      steamid: '212V16ECZ4HE',
+      token: '7FJS3VY2273L',
+    };
+    return Object.assign({}, defaults, token);
+  }
+
   beforeEach(() => {
     fetch.resetMocks();
     target = new TransportFetch();
@@ -16,7 +28,8 @@ describe('TransportFetch', () => {
   function expectGetAllCalled() {
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith('https://steamcommunity.com/dev/managegameservers?l=english', {
-      method: 'GET', credentials: 'include'
+      credentials: 'include',
+      method: 'GET',
     });
   }
 
@@ -81,16 +94,7 @@ describe('TransportFetch', () => {
     fetch.mockResponseOnce(mount(element).html(), { type: 'text/html' });
     await expect(target.getAll()).resolves.toEqual({
       sessionId: '',
-      tokens: [
-        {
-          appid: 730,
-          expired: false,
-          lastLogon: undefined,
-          memo: 'CSGO',
-          steamid: '212V16ECZ4HE',
-          token: '7FJS3VY2273L',
-        }
-      ],
+      tokens: [createToken()],
     });
     expectGetAllCalled();
   });
@@ -116,16 +120,7 @@ describe('TransportFetch', () => {
     fetch.mockResponseOnce(mount(element).html(), { type: 'text/html' });
     await expect(target.getAll()).resolves.toEqual({
       sessionId: '',
-      tokens: [
-        {
-          appid: 730,
-          expired: true,
-          lastLogon: undefined,
-          memo: 'CSGO',
-          steamid: '212V16ECZ4HE',
-          token: '7FJS3VY2273L',
-        }
-      ],
+      tokens: [createToken({expired: true})],
     });
     expectGetAllCalled();
   });
@@ -151,16 +146,7 @@ describe('TransportFetch', () => {
     fetch.mockResponseOnce(mount(element).html(), { type: 'text/html' });
     await expect(target.getAll()).resolves.toEqual({
       sessionId: '',
-      tokens: [
-        {
-          appid: 730,
-          expired: false,
-          lastLogon: '1995-12-17T03:24:00',
-          memo: 'CSGO',
-          steamid: '212V16ECZ4HE',
-          token: '7FJS3VY2273L',
-        }
-      ],
+      tokens: [createToken({lastLogon: '1995-12-17T03:24:00'})],
     });
     expectGetAllCalled();
   });

@@ -15,7 +15,7 @@ export default class ActionQueueState {
   }
 
   @computed
-  public get running() {
+  public get running(): ActionQueue[] {
     return this.queues;
   }
 

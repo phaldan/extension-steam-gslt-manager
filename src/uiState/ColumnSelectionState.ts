@@ -32,7 +32,7 @@ export default class ColumnSelectionState {
     return this.checkedMemo;
   }
 
-  @computed 
+  @computed
   public get steamId(): boolean {
     return this.checkedSteamID;
   }

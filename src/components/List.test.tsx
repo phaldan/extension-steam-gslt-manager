@@ -1,55 +1,18 @@
 import { mount, shallow, ShallowWrapper } from 'enzyme';
+import 'jest-enzyme';
 import * as React from 'react';
 import GameServerAccount from '../store/GameServerAccount';
 import GsltStore from '../store/GsltStore';
+import GsltStoreDummy from '../store/GsltStoreDummy';
 import ActionQueueState from '../uiState/ActionQueueState';
 import delay from '../utils/delay';
 import List from './List';
-import 'jest-enzyme';
-
-class GsltStoreStub implements GsltStore {
-  public removeAccountsMock = jest.fn();
-  public removeAccountsReturn?: Promise<GameServerAccount>[];
-  public regenerateTokensMock = jest.fn();
-  public regenerateTokensReturn?: Promise<GameServerAccount>[];
-
-  loadAccounts(): Promise<void> {
-    throw new Error("Method not implemented.");
-  }
-  get tokenAccounts(): GameServerAccount[] {
-    throw new Error("Method not implemented.");
-  }
-  removeAccount(account: GameServerAccount): Promise<GameServerAccount> {
-    throw new Error("Method not implemented.");
-  }
-  removeAccounts(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
-    this.removeAccountsMock(accounts);
-    return this.removeAccountsReturn || [Promise.reject('Promise for removeAccounts not found')];
-  }
-  regenerateToken(account: GameServerAccount): Promise<GameServerAccount> {
-    throw new Error("Method not implemented.");
-  }
-  regenerateTokens(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
-    this.regenerateTokensMock(accounts);
-    return this.regenerateTokensReturn || [Promise.reject('Promise for regenerateTokens not found')];
-  }
-  updateMemo(account: GameServerAccount, memo: string): Promise<GameServerAccount> {
-    throw new Error("Method not implemented.");
-  }
-  createAccounts(amount: number, appid: string, memo: string): Promise<void>[] {
-    throw new Error("Method not implemented.");
-  }
-  get isLoggedIn(): boolean {
-    throw new Error("Method not implemented.");
-  }
-  get isInitialized(): boolean {
-    throw new Error("Method not implemented.");
-  }
-}
 
 describe('<List>', () => {
-  let store: GsltStoreStub;
+  let store: GsltStore;
   let queue: ActionQueueState;
+  let removeAccountsMock;
+  let regenerateTokensMock;
 
   function createComponent(items, regenerate) {
     const element = (
@@ -69,7 +32,14 @@ describe('<List>', () => {
   }
 
   function expectCsv(target, rows = '') {
-    const href = 'data:text/csv;charset=UTF-8,\uFEFF%22SteamID%22%2C%22Token%22%2C%22AppID%22%2C%22Last-Logon%22%2C%22Memo%22%0A';
+    const columns = [
+      'SteamID',
+      'Token',
+      'AppID',
+      'Last-Logon',
+      'Memo',
+    ].join('%22%2C%22');
+    const href = `data:text/csv;charset=UTF-8,\uFEFF%22${columns}%22%0A`;
     expect(target.find('.js-csv')).toHaveProp('href', href + rows);
   }
 
@@ -80,8 +50,8 @@ describe('<List>', () => {
     expect(target.find('Button')).toMatchSnapshot();
     expectExport(target, []);
     expectCreate(target);
-    expect(store.removeAccountsMock).not.toBeCalled();
-    expect(store.regenerateTokensMock).not.toBeCalled();
+    expect(removeAccountsMock).not.toBeCalled();
+    expect(regenerateTokensMock).not.toBeCalled();
     expect(queue.running).toHaveLength(0);
   }
 
@@ -93,7 +63,6 @@ describe('<List>', () => {
     expect(entry).toHaveProp('selected', isSelected);
     expect(entry).toHaveProp('enableRegenerate', true);
     expect(entry).toHaveProp('actions', queue);
-    
   }
 
   function expectWithAccount(target, account, checkedSelectAll, csv, isSelected, isLocked, selectedAccounts) {
@@ -110,7 +79,12 @@ describe('<List>', () => {
   }
 
   beforeEach(() => {
-    store = new GsltStoreStub();
+    store = new GsltStoreDummy();
+    removeAccountsMock = jest.fn();
+    store.removeAccounts = removeAccountsMock;
+    regenerateTokensMock = jest.fn();
+    store.regenerateTokens = regenerateTokensMock;
+
     queue = new ActionQueueState();
     queue.setRemoveDelay(0);
   });
@@ -166,8 +140,8 @@ describe('<List>', () => {
 
       const csv = '%22212V16ECZ4HE%22%2C%227FJS3VY2273L%22%2C740%2C%221995-12-17T03%3A24%3A00.000Z%22%2C%22CSGO%22';
       expectWithAccount(target, account, true, csv, true, false, [account]);
-      expect(store.removeAccountsMock).not.toBeCalled();
-      expect(store.regenerateTokensMock).not.toBeCalled();
+      expect(removeAccountsMock).not.toBeCalled();
+      expect(regenerateTokensMock).not.toBeCalled();
     });
 
     test('deselect by entry', () => {
@@ -175,29 +149,34 @@ describe('<List>', () => {
       target.find('Entry').simulate('toggle', false, account);
 
       expectWithAccount(target, account, false, '', false, false, []);
-      expect(store.removeAccountsMock).not.toBeCalled();
-      expect(store.regenerateTokensMock).not.toBeCalled();
+      expect(removeAccountsMock).not.toBeCalled();
+      expect(regenerateTokensMock).not.toBeCalled();
     });
 
     test('remove all', async () => {
-      store.removeAccountsReturn = [Promise.resolve(account)];
+      removeAccountsMock = jest.fn(() => [Promise.resolve(account)]);
+      store.removeAccounts = removeAccountsMock;
+
       target.find('.js-select-button').simulate('click');
       target.find('.js-remove').simulate('click');
 
       await delay(10); // Waiting for ActionQueueState to finish
       expectWithAccount(target.update(), account, false, '', false, true, []);
-      expect(store.removeAccountsMock).toBeCalledWith([account]);
-      expect(store.regenerateTokensMock).not.toBeCalled();
+      expect(removeAccountsMock).toBeCalledWith([account]);
+      expect(regenerateTokensMock).not.toBeCalled();
     });
 
     test('regenerate all', async () => {
-      store.regenerateTokensReturn = [Promise.resolve(account)];
+      regenerateTokensMock = jest.fn(() => [Promise.resolve(account)]);
+      store.regenerateTokens = regenerateTokensMock;
+
       target.find('.js-select-button').simulate('click');
       target.find('.js-regenerate').simulate('click');
       await delay(10); // Waiting for ActionQueueState to finish
+
       expectWithAccount(target.update(), account, false, '', false, false, []);
-      expect(store.removeAccountsMock).not.toBeCalled();
-      expect(store.regenerateTokensMock).toBeCalledWith([account]);
+      expect(removeAccountsMock).not.toBeCalled();
+      expect(regenerateTokensMock).toBeCalledWith([account]);
     });
   });
 
@@ -215,7 +194,7 @@ describe('<List>', () => {
 
     const csv = '%22212V16ECZ4HE%22%2C%227FJS3VY2273L%22%2C740%2C%2C%22CSGO%22';
     expectWithAccount(target.update(), account, true, csv, true, false, [account]);
-    expect(store.removeAccountsMock).not.toBeCalled();
-    expect(store.regenerateTokensMock).not.toBeCalled();
+    expect(removeAccountsMock).not.toBeCalled();
+    expect(regenerateTokensMock).not.toBeCalled();
   });
 });
