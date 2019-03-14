@@ -1,6 +1,6 @@
 describe('background', () => {
-  const browserApi = jest.fn(() => false);
-  const chromeApi = jest.fn(() => false);
+  const browserApi: jest.Mock<Object, any[]> = jest.fn(() => new Object());
+  const chromeApi: jest.Mock<Object, any[]> = jest.fn(() => new Object());
   Object.defineProperty(global, 'browser', {
     get: browserApi,
   });
@@ -10,8 +10,8 @@ describe('background', () => {
 
   beforeEach(() => {
     jest.resetModules();
-    browserApi.mockClear();
-    chromeApi.mockClear();
+    browserApi.mockReset();
+    chromeApi.mockReset();
   });
 
   test('fail with unknown API', () => {

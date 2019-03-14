@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
-import ActionQueueState from 'uiState/ActionQueueState';
-import GameServerAccount from 'store/GameServerAccount';
-import GsltStore from 'store/GsltStore';
+import ActionQueueState from '../uiState/ActionQueueState';
+import GameServerAccount from '../store/GameServerAccount';
+import GsltStore from '../store/GsltStore';
 import Create from './Create';
 
 function createComponent(store) {
@@ -50,7 +50,7 @@ describe('<Create>', () => {
             }
             createAccounts(amount: number, appid: string, memo: string): Promise<void>[] {
                 createMock(amount, appid, memo);
-                return [Promise.resolve(null)];
+                return [Promise.resolve()];
             }
             get isLoggedIn(): boolean {
                 throw new Error("Method not implemented.");

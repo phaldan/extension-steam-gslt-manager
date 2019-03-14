@@ -5,9 +5,10 @@ import GsltStore from '../store/GsltStore';
 import ActionQueueState from '../uiState/ActionQueueState';
 import delay from '../utils/delay';
 import Edit from './Edit';
+import 'jest-enzyme';
 
 class GsltStoreStub implements GsltStore {
-  public updateReturn: Promise<GameServerAccount>;
+  public updateReturn?: Promise<GameServerAccount>;
   public updateMock = jest.fn();
 
   loadAccounts(): Promise<void> {
@@ -30,7 +31,7 @@ class GsltStoreStub implements GsltStore {
   }
   updateMemo(account: GameServerAccount, memo: string): Promise<GameServerAccount> {
     this.updateMock(account, memo);
-    return this.updateReturn;
+    return this.updateReturn || Promise.reject('promise for GameServerAccount not found');
   }
   createAccounts(amount: number, appid: string, memo: string): Promise<void>[] {
     throw new Error("Method not implemented.");
@@ -53,8 +54,8 @@ describe('<Edit>', () => {
   }
 
   function expectEdit(target, modalIsDisabled) {
-    expect(target.find('ActionModal').props().disabled).toEqual(modalIsDisabled);
-    expect(target.find('.js-memo').props().defaultValue).toEqual('Awesome');
+    expect(target.find('ActionModal')).toHaveProp('disabled', modalIsDisabled);
+    expect(target.find('.js-memo')).toHaveProp('defaultValue', 'Awesome');
     expect(account.memo).toEqual('Awesome');
     expect(queue.running).toHaveLength(0);
     expect(target).toMatchSnapshot();
@@ -71,7 +72,7 @@ describe('<Edit>', () => {
     });
     store = new GsltStoreStub();
     queue = new ActionQueueState();
-    queue.setRemoveDelay(0);
+    queue.setRemoveDelay(1);
   });
 
   test('disabled ActionModal', () =>  {
@@ -84,13 +85,15 @@ describe('<Edit>', () => {
   describe('enabled ActionModal', () => {
     let target;
     beforeEach(() => {
+      store.updateReturn = Promise.resolve(account);
       target = createComponent(account, store, false);
     });
 
     test('save memo', async () =>  {
-      target.find('ActionModal').simulate('action');
+      await target.find('ActionModal').simulate('action');
 
       await delay(10);
+
       expectEdit(target, false);
       expect(store.updateMock).toHaveBeenCalledWith(account, 'Awesome');
     });

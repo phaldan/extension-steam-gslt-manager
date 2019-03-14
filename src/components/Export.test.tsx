@@ -2,6 +2,7 @@ import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 import GameServerAccount from '../store/GameServerAccount';
 import Export from './Export';
+import 'jest-enzyme';
 
 jest.mock('copy-to-clipboard');
 
@@ -28,7 +29,7 @@ describe('<Export>', () => {
     });
     const target = shallow(<Export accounts={[account]} />);
     target.find('.js-logon').simulate('change', { target: { checked: true } });
-    expect(target.find('.js-output').props().value).toEqual('7FJS3VY2273L,');
+    expect(target.find('.js-output')).toHaveProp('value', '7FJS3VY2273L,');
     expect(target).toMatchSnapshot();
   });
 
@@ -48,42 +49,42 @@ describe('<Export>', () => {
     });
 
     test('initial state', () => {
-      expect(target.find('.js-output').props().value).toEqual('7FJS3VY2273L');
+      expect(target.find('.js-output')).toHaveProp('value', '7FJS3VY2273L');
       expect(copyToClipboard).not.toBeCalled();
       expect(target).toMatchSnapshot();
     });
 
     test('check SteamID', () => {
       target.find('.js-steamid').simulate('change', { target: { checked: true } });
-      expect(target.find('.js-output').props().value).toEqual('212V16ECZ4HE,7FJS3VY2273L');
+      expect(target.find('.js-output')).toHaveProp('value', '212V16ECZ4HE,7FJS3VY2273L');
       expect(copyToClipboard).not.toBeCalled();
       expect(target).toMatchSnapshot();
     });
 
     test('uncheck token', () => {
       target.find('.js-token').simulate('change', { target: { checked: false } });
-      expect(target.find('.js-output').props().value).toEqual('');
+      expect(target.find('.js-output')).toHaveProp('value', '');
       expect(copyToClipboard).not.toBeCalled();
       expect(target).toMatchSnapshot();
     });
 
     test('check Appid', () => {
       target.find('.js-appid').simulate('change', { target: { checked: true } });
-      expect(target.find('.js-output').props().value).toEqual('7FJS3VY2273L,740');
+      expect(target.find('.js-output')).toHaveProp('value', '7FJS3VY2273L,740');
       expect(copyToClipboard).not.toBeCalled();
       expect(target).toMatchSnapshot();
     });
 
     test('check last logon', () => {
       target.find('.js-logon').simulate('change', { target: { checked: true } });
-      expect(target.find('.js-output').props().value).toEqual('7FJS3VY2273L,1995-12-17T03:24:00.000Z');
+      expect(target.find('.js-output')).toHaveProp('value', '7FJS3VY2273L,1995-12-17T03:24:00.000Z');
       expect(copyToClipboard).not.toBeCalled();
       expect(target).toMatchSnapshot();
     });
 
     test('check memo', () => {
       target.find('.js-memo').simulate('change', { target: { checked: true } });
-      expect(target.find('.js-output').props().value).toEqual('7FJS3VY2273L,CSGO');
+      expect(target.find('.js-output')).toHaveProp('value', '7FJS3VY2273L,CSGO');
       expect(copyToClipboard).not.toBeCalled();
       expect(target).toMatchSnapshot();
     });

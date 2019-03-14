@@ -53,7 +53,7 @@ export default class Edit extends React.Component<EditProps, EditState> {
     const { store, account, actions } = this.props;
     const queue = actions.create('Update memo:', [account.steamid]);
     await store.updateMemo(account, value);
-    queue.progress(account.steamid);
+    await queue.progress(account.steamid);
   }
 
   private updateMemo = (event): void => {

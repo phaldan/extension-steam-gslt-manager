@@ -5,12 +5,13 @@ import GsltStore from '../store/GsltStore';
 import ActionQueueState from '../uiState/ActionQueueState';
 import delay from '../utils/delay';
 import List from './List';
+import 'jest-enzyme';
 
 class GsltStoreStub implements GsltStore {
   public removeAccountsMock = jest.fn();
-  public removeAccountsReturn: Promise<GameServerAccount>[];
+  public removeAccountsReturn?: Promise<GameServerAccount>[];
   public regenerateTokensMock = jest.fn();
-  public regenerateTokensReturn: Promise<GameServerAccount>[];
+  public regenerateTokensReturn?: Promise<GameServerAccount>[];
 
   loadAccounts(): Promise<void> {
     throw new Error("Method not implemented.");
@@ -23,14 +24,14 @@ class GsltStoreStub implements GsltStore {
   }
   removeAccounts(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
     this.removeAccountsMock(accounts);
-    return this.removeAccountsReturn;
+    return this.removeAccountsReturn || [Promise.reject('Promise for removeAccounts not found')];
   }
   regenerateToken(account: GameServerAccount): Promise<GameServerAccount> {
     throw new Error("Method not implemented.");
   }
   regenerateTokens(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
     this.regenerateTokensMock(accounts);
-    return this.regenerateTokensReturn;
+    return this.regenerateTokensReturn || [Promise.reject('Promise for regenerateTokens not found')];
   }
   updateMemo(account: GameServerAccount, memo: string): Promise<GameServerAccount> {
     throw new Error("Method not implemented.");
@@ -58,23 +59,23 @@ describe('<List>', () => {
   }
 
   function expectExport(target, accounts) {
-    expect(target.find('Export').props().accounts).toEqual(accounts);
+    expect(target.find('Export')).toHaveProp('accounts', accounts);
   }
 
   function expectCreate(target) {
     expect(target.find('Entry').exists()).not.toBeTruthy();
-    expect(target.find('Create').props().store).toBe(store);
-    expect(target.find('Create').props().actions).toBe(queue);
+    expect(target.find('Create')).toHaveProp('store', store);
+    expect(target.find('Create')).toHaveProp('actions', queue);
   }
 
   function expectCsv(target, rows = '') {
     const href = 'data:text/csv;charset=UTF-8,\uFEFF%22SteamID%22%2C%22Token%22%2C%22AppID%22%2C%22Last-Logon%22%2C%22Memo%22%0A';
-    expect(target.find('.js-csv').props().href).toEqual(href + rows);
+    expect(target.find('.js-csv')).toHaveProp('href', href + rows);
   }
 
   function expectEmptyListOfItems(target, disabledRegenerate: boolean, checkedSelectAll: boolean) {
-    expect(target.find('.js-select-checkbox').props().checked).toEqual(checkedSelectAll);
-    expect(target.find('.js-regenerate').props().disabled).toEqual(disabledRegenerate);
+    expect(target.find('.js-select-checkbox')).toHaveProp('checked', checkedSelectAll);
+    expect(target.find('.js-regenerate')).toHaveProp('disabled', disabledRegenerate);
     expectCsv(target);
     expect(target.find('Button')).toMatchSnapshot();
     expectExport(target, []);
@@ -87,17 +88,17 @@ describe('<List>', () => {
   function expectEntry(target, account, isSelected) {
     expect(target.find('Create').exists()).not.toBeTruthy();
     const entry = target.find('Entry');
-    expect(entry.props().store).toBe(store);
-    expect(entry.props().account).toBe(account);
-    expect(entry.props().selected).toBe(isSelected);
-    expect(entry.props().enableRegenerate).toBe(true);
-    expect(entry.props().actions).toBe(queue);
+    expect(entry).toHaveProp('store', store);
+    expect(entry).toHaveProp('account', account);
+    expect(entry).toHaveProp('selected', isSelected);
+    expect(entry).toHaveProp('enableRegenerate', true);
+    expect(entry).toHaveProp('actions', queue);
     
   }
 
   function expectWithAccount(target, account, checkedSelectAll, csv, isSelected, isLocked, selectedAccounts) {
-    expect(target.find('.js-select-checkbox').props().checked).toEqual(checkedSelectAll);
-    expect(target.find('.js-regenerate').props().disabled).toEqual(false);
+    expect(target.find('.js-select-checkbox')).toHaveProp('checked', checkedSelectAll);
+    expect(target.find('.js-regenerate')).toHaveProp('disabled', false);
     expectCsv(target, csv);
     expect(target.find('Button')).toMatchSnapshot();
 

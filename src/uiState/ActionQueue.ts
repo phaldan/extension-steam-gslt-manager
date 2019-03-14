@@ -50,18 +50,18 @@ export default class ActionQueue {
   }
 
   @action
-  public progress(key: string) {
+  public async progress(key: string) {
     const index = this.queue.indexOf(key);
     if (index >= 0) {
       this.finished[index] = true;
-      this.finishing();
+      await this.finishing();
     }
   }
 
   private async finishing() {
     if (this.isFinished) {
       await delay(this.finishDelay);
-      this.state.remove(this.id);
+      await this.state.remove(this.id);
     }
   }
 }

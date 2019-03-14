@@ -5,6 +5,7 @@ import GsltStore from '../store/GsltStore';
 import ActionQueueState from '../uiState/ActionQueueState';
 import delay from '../utils/delay';
 import Entry from './Entry';
+import 'jest-enzyme';
 
 jest.mock('copy-to-clipboard');
 
@@ -23,9 +24,9 @@ function createComponent(state, account, selected, regenerate, queue, callback =
 }
 
 class GsltStoreStub implements GsltStore {
-  public removeAccountReturn: Promise<GameServerAccount>;
+  public removeAccountReturn?: Promise<GameServerAccount>;
   public removeAccountMock = jest.fn();
-  public regenerateTokenReturn: Promise<GameServerAccount>;
+  public regenerateTokenReturn?: Promise<GameServerAccount>;
   public regenerateTokenMock = jest.fn();
 
   loadAccounts(): Promise<void> {
@@ -36,14 +37,14 @@ class GsltStoreStub implements GsltStore {
   }
   removeAccount(account: GameServerAccount): Promise<GameServerAccount> {
     this.removeAccountMock(account);
-    return this.removeAccountReturn;
+    return this.removeAccountReturn || Promise.reject('Promise for removeAccount not found');
   }
   removeAccounts(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
     throw new Error("Method not implemented.");
   }
   regenerateToken(account: GameServerAccount): Promise<GameServerAccount> {
     this.regenerateTokenMock(account);
-    return this.regenerateTokenReturn;
+    return this.regenerateTokenReturn || Promise.reject('Promise for regenerateToken not found');
   }
   regenerateTokens(accounts: GameServerAccount[]): Promise<GameServerAccount>[] {
     throw new Error("Method not implemented.");
@@ -68,13 +69,13 @@ describe('<Entry>', () => {
   const copyToClipboard = require('copy-to-clipboard');
 
   function expectDisabledButtons(target, remove, regenerate, edit) {
-    expect(target.find('.js-remove').props().disabled).toBe(remove);
-    expect(target.find('.js-regenerate').props().disabled).toBe(regenerate);
-    expect(target.find('Edit').props().disabled).toBe(edit);
+    expect(target.find('.js-remove')).toHaveProp('disabled', remove);
+    expect(target.find('.js-regenerate')).toHaveProp('disabled', regenerate);
+    expect(target.find('Edit')).toHaveProp('disabled', edit);
   }
 
   function expectAccountContent(target, token, appid, hasLastLogon, memo) {
-    expect(target.find('FormControl').props().value).toBe(token);
+    expect(target.find('FormControl')).toHaveProp('value', token);
     expect(target.find('.js-appid').text()).toBe(appid);
     expect(target.find('FormattedDate').exists()).toBe(hasLastLogon);
     expect(target.find('.js-memo').text()).toBe(memo);
@@ -82,13 +83,13 @@ describe('<Entry>', () => {
 
   function expectAccountWithLastLogon(target, token, appid, lastLogon, memo) {
     expectAccountContent(target, token, appid, true, memo);
-    expect(target.find('FormattedDate').props().value).toEqual(new Date(lastLogon));
+    expect(target.find('FormattedDate')).toHaveProp('value', new Date(lastLogon));
   }
 
   function expectEdit(target, account) {
-    expect(target.find('Edit').props().store).toBe(store);
-    expect(target.find('Edit').props().account).toBe(account);
-    expect(target.find('Edit').props().actions).toBe(queue);
+    expect(target.find('Edit')).toHaveProp('store', store);
+    expect(target.find('Edit')).toHaveProp('account', account);
+    expect(target.find('Edit')).toHaveProp('actions', queue);
   }
 
   function expectSnapshot(target) {
@@ -124,7 +125,7 @@ describe('<Entry>', () => {
 
       expectDisabledButtons(target, false, false, false);
       expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
-      expect(target.find('.js-select').props().checked).toEqual(true);
+      expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
       expect(store.removeAccountMock).not.toBeCalled();
@@ -140,7 +141,7 @@ describe('<Entry>', () => {
       
       expectDisabledButtons(target, false, false, false);
       expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
-      expect(target.find('.js-select').props().checked).toEqual(true);
+      expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
       expect(callback).toBeCalled();
@@ -159,7 +160,7 @@ describe('<Entry>', () => {
       await delay(10);
       expectDisabledButtons(target, true, true, true);
       expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
-      expect(target.find('.js-select').props().checked).toEqual(true);
+      expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
       expect(store.removeAccountMock).toBeCalledWith(account);
@@ -175,7 +176,7 @@ describe('<Entry>', () => {
 
       expectDisabledButtons(target, true, true, true);
       expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
-      expect(target.find('.js-select').props().checked).toEqual(true);
+      expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
       expect(store.removeAccountMock).not.toBeCalled();
@@ -192,7 +193,7 @@ describe('<Entry>', () => {
       await delay(10);
       expectDisabledButtons(target, false, false, false);
       expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
-      expect(target.find('.js-select').props().checked).toEqual(true);
+      expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
       expect(store.removeAccountMock).not.toBeCalled();
@@ -207,7 +208,7 @@ describe('<Entry>', () => {
 
       expectDisabledButtons(target, false, false, false);
       expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
-      expect(target.find('.js-select').props().checked).toEqual(true);
+      expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
       expect(store.removeAccountMock).not.toBeCalled();
@@ -235,7 +236,7 @@ describe('<Entry>', () => {
 
       expectDisabledButtons(target, false, true, false);
       expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
-      expect(target.find('.js-select').props().checked).toEqual(true);
+      expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
       expect(store.removeAccountMock).not.toBeCalled();
@@ -250,7 +251,7 @@ describe('<Entry>', () => {
 
       expectDisabledButtons(target, false, true, false);
       expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
-      expect(target.find('.js-select').props().checked).toEqual(true);
+      expect(target.find('.js-select')).toHaveProp('checked', true);
       expectEdit(target, account);
       expect(queue.running).toHaveLength(0);
       expect(store.removeAccountMock).not.toBeCalled();
@@ -273,7 +274,7 @@ describe('<Entry>', () => {
 
     expectDisabledButtons(target, false, false, false);
     expectAccountWithLastLogon(target, '7FJS3VY2273L', '740', '1995-12-17T03:24:00', 'CSGO');
-    expect(target.find('.js-select').props().checked).toEqual(false);
+    expect(target.find('.js-select')).toHaveProp('checked', false);
     expectEdit(target, account);
     expect(queue.running).toHaveLength(0);
     expect(store.removeAccountMock).not.toBeCalled();
@@ -296,7 +297,7 @@ describe('<Entry>', () => {
     expect(copyToClipboard).not.toBeCalled();
     expectDisabledButtons(target, false, true, false);
     expectAccountContent(target, '7FJS3VY2273L', '740', false, 'CSGO');
-    expect(target.find('.js-select').props().checked).toEqual(false);
+    expect(target.find('.js-select')).toHaveProp('checked', false);
     expectEdit(target, account);
     expect(queue.running).toHaveLength(0);
     expect(store.removeAccountMock).not.toBeCalled();

@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 import ActionModal from './ActionModal';
+import 'jest-enzyme';
 
 describe('<ActionModal>', () => {
   test('style and text customizations', () => {
@@ -19,12 +20,12 @@ describe('<ActionModal>', () => {
     const target = shallow(element);
 
     const openButton = target.find('.js-open');
-    expect(openButton.props().bsSize).toEqual('small');
-    expect(openButton.props().disabled).toEqual(false);
+    expect(openButton).toHaveProp('bsSize', 'small');
+    expect(openButton).toHaveProp('disabled', false);
     expect(openButton.contains('Open')).toEqual(true);
-    expect(target.find('Glyphicon').props().glyph).toEqual('more');
+    expect(target.find('Glyphicon')).toHaveProp('glyph', 'more');
 
-    expect(target.find('Modal').props().show).toEqual(false);
+    expect(target.find('Modal')).toHaveProp('show', false);
     expect(target.find('ModalTitle').contains('TitleText')).toEqual(true);
     expect(target.find('ModalBody').contains(<p>Lorem Ipsum</p>)).toEqual(true);
 
@@ -37,7 +38,7 @@ describe('<ActionModal>', () => {
   test('fail to open modal with disabled button', () => {
     const target = shallow(<ActionModal disabled={true} />);
     target.find('.js-open').simulate('click');
-    expect(target.find('Modal').props().show).toEqual(false);
+    expect(target.find('Modal')).toHaveProp('show', false);
     expect(target).toMatchSnapshot();
   });
 
@@ -49,21 +50,21 @@ describe('<ActionModal>', () => {
 
     test('successful open modal with enabled button', () => {
       target.find('.js-open').simulate('click');
-      expect(target.find('Modal').props().show).toEqual(true);
+      expect(target.find('Modal')).toHaveProp('show', true);
       expect(target).toMatchSnapshot();
     });
 
     test('successful close modal', () => {
       target.find('.js-open').simulate('click');
       target.find('.js-close').simulate('click');
-      expect(target.find('Modal').props().show).toEqual(false);
+      expect(target.find('Modal')).toHaveProp('show', false);
       expect(target).toMatchSnapshot();
     });
 
     test('successful close modal on hide', () => {
       target.find('.js-open').simulate('click');
       target.find('Modal').simulate('hide');
-      expect(target.find('Modal').props().show).toEqual(false);
+      expect(target.find('Modal')).toHaveProp('show', false);
       expect(target).toMatchSnapshot();
     });
   });
@@ -79,7 +80,7 @@ describe('<ActionModal>', () => {
     test('fail to close modal with not opened on action', () => {
       target.find('.js-action').simulate('click');
       expect(callback).not.toHaveBeenCalled();
-      expect(target.find('Modal').props().show).toEqual(false);
+      expect(target.find('Modal')).toHaveProp('show', false);
       expect(target).toMatchSnapshot();
     });
 
@@ -87,7 +88,7 @@ describe('<ActionModal>', () => {
       target.find('.js-open').simulate('click');
       target.find('.js-action').simulate('click');
       expect(callback).toHaveBeenCalled();
-      expect(target.find('Modal').props().show).toEqual(false);
+      expect(target.find('Modal')).toHaveProp('show', false);
       expect(target).toMatchSnapshot();
     });
   });
