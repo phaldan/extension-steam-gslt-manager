@@ -9,6 +9,7 @@ const ExtensionTarget = require('./ExtensionTarget');
 
 const packageVersion = process.env.npm_package_version;
 const packageDesc = process.env.npm_package_description;
+const packageTitle = 'Steam GSLT manager';
 
 module.exports = (env, argv) => {
   const prodMode = argv.mode === 'production';
@@ -134,7 +135,7 @@ module.exports = (env, argv) => {
         template: require('html-webpack-template'),
         appMountId: 'root',
         baseHref: prodMode ? undefined : 'http://localhost:8080/',
-        title: packageDesc,
+        title: packageTitle,
         links: [ 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' ],
         minify: {
           collapseBooleanAttributes: true,
@@ -147,7 +148,8 @@ module.exports = (env, argv) => {
         minify: false,
         template: 'src/manifest.json.hbs',
         filename: 'manifest.json',
-        title: packageDesc,
+        title: packageTitle,
+        desc: packageDesc,
         prodMode,
         version: packageVersion,
         enablePersistent: extTarget.isFirefox(),
