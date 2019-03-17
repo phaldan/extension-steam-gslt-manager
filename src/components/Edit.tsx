@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import { FormControl } from 'react-bootstrap';
 import GameServerAccount from '../store/GameServerAccount';
 import GsltStore from '../store/GsltStore';

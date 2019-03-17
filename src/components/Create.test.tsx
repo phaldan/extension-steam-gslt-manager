@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import * as React from 'react';
+import React from 'react';
 import GameServerAccount from '../store/GameServerAccount';
 import GsltStore from '../store/GsltStore';
 import GsltStoreDummy from '../store/GsltStoreDummy';

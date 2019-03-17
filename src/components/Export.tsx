@@ -1,6 +1,6 @@
 import copy from 'copy-to-clipboard';
 import { observer } from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import { Checkbox, FormControl, FormGroup } from 'react-bootstrap';
 import GameServerAccount from '../store/GameServerAccount';
 import ColumnSelectionState from '../uiState/ColumnSelectionState';

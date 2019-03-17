@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import 'jest-enzyme';
-import * as React from 'react';
+import React from 'react';
 import ActionModal from './ActionModal';
 
 describe('<ActionModal>', () => {

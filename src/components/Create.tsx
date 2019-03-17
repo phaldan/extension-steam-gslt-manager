@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ControlLabel, FormControl, FormGroup } from 'react-bootstrap/';
 import GsltStore from '../store/GsltStore';
 import ActionQueueState from '../uiState/ActionQueueState';

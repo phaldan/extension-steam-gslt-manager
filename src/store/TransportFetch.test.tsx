@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import { fetch } from 'jest-fetch-mock/src/index';
-import * as React from 'react';
+import React from 'react';
 import TransportFetch from './TransportFetch';
 
 const fetch = window.fetch as fetch;

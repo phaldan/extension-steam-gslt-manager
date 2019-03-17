@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import ActionModal from './ActionModal';
 
 declare const PACKAGE_VERSION: string;

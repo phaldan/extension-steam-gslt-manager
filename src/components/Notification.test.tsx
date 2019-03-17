@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import 'jest-enzyme';
-import * as React from 'react';
+import React from 'react';
 import ActionQueue from '../uiState/ActionQueue';
 import ActionQueueState from '../uiState/ActionQueueState';
 import { stubObject } from '../utils/mocked';

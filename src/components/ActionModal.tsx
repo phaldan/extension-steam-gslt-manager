@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Button, Glyphicon, Modal } from 'react-bootstrap';
 
 interface ActionModalProps {

@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import { Alert, AlertContainer } from 'react-bs-notifier';
 import ActionQueue from '../uiState/ActionQueue';

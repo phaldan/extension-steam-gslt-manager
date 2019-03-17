@@ -1,6 +1,6 @@
 import copy from 'copy-to-clipboard';
 import { observer } from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import { Button, Checkbox, FormControl, Glyphicon } from 'react-bootstrap';
 import { FormattedDate } from 'react-intl';
 import GameServerAccount from '../store/GameServerAccount';

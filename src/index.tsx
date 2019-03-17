@@ -1,5 +1,5 @@
 import { useStrict } from 'mobx';
-import * as React from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import App from './components/App';
