@@ -17,7 +17,7 @@ export default class Notification extends React.Component<Props> {
     return (
       <div className="notifier">
         <AlertContainer position="bottom-right">
-        {actionQueue.running.map(this.renderActionQueue)}
+          {actionQueue.running.map((q) => this.renderActionQueue(q))}
         </AlertContainer>
       </div>
     );
